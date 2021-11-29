@@ -1,5 +1,5 @@
-#include <bingo/greeter.h>
-#include <bingo/version.h>
+#include <lmisolver/greeter.h>
+#include <lmisolver/version.h>
 #include <doctest/doctest.h>
 
 #include <string>
@@ -11,7 +11,7 @@ TEST_CASE("undefined behavior") {
     // std::cout << "125 >> 32 = " << b << "\n";
 }
 
-TEST_CASE("Bingo version") {
-    static_assert(std::string_view(BINGO_VERSION) == std::string_view("1.0"));
-    CHECK(std::string(BINGO_VERSION) == std::string("1.0"));
+TEST_CASE("LmiSolver version") {
+    static_assert(std::string_view(LMISOLVER_VERSION) == std::string_view("1.0"));
+    CHECK(std::string(LMISOLVER_VERSION) == std::string("1.0"));
 }

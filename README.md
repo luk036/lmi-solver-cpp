@@ -1,15 +1,15 @@
-[![Actions Status](https://github.com/luk036/bingo-cpp/workflows/MacOS/badge.svg)](https://github.com/luk036/bingo-cpp/actions)
-[![Actions Status](https://github.com/luk036/bingo-cpp/workflows/Windows/badge.svg)](https://github.com/luk036/bingo-cpp/actions)
-[![Actions Status](https://github.com/luk036/bingo-cpp/workflows/Ubuntu/badge.svg)](https://github.com/luk036/bingo-cpp/actions)
-[![Actions Status](https://github.com/luk036/bingo-cpp/workflows/Style/badge.svg)](https://github.com/luk036/bingo-cpp/actions)
-[![Actions Status](https://github.com/luk036/bingo-cpp/workflows/Install/badge.svg)](https://github.com/luk036/bingo-cpp/actions)
-[![codecov](https://codecov.io/gh/luk036/bingo-cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/luk036/bingo-cpp)
+[![Actions Status](https://github.com/luk036/lmi-solver-cpp/workflows/MacOS/badge.svg)](https://github.com/luk036/lmi-solver-cpp/actions)
+[![Actions Status](https://github.com/luk036/lmi-solver-cpp/workflows/Windows/badge.svg)](https://github.com/luk036/lmi-solver-cpp/actions)
+[![Actions Status](https://github.com/luk036/lmi-solver-cpp/workflows/Ubuntu/badge.svg)](https://github.com/luk036/lmi-solver-cpp/actions)
+[![Actions Status](https://github.com/luk036/lmi-solver-cpp/workflows/Style/badge.svg)](https://github.com/luk036/lmi-solver-cpp/actions)
+[![Actions Status](https://github.com/luk036/lmi-solver-cpp/workflows/Install/badge.svg)](https://github.com/luk036/lmi-solver-cpp/actions)
+[![codecov](https://codecov.io/gh/luk036/lmi-solver-cpp/branch/master/graph/badge.svg)](https://codecov.io/gh/luk036/lmi-solver-cpp)
 
 <p align="center">
   <img src="https://repository-images.githubusercontent.com/254842585/4dfa7580-7ffb-11ea-99d0-46b8fe2f4170" height="175" width="auto" />
 </p>
 
-# bingo-cpp (modified from ModernCppStarter)
+# lmi-solver-cpp (modified from ModernCppStarter)
 
 (**Note**: this project has been modified from the original ModernCppStarter so that it is more **vscode-friendly**.)
 
@@ -35,9 +35,9 @@ This template is the result of learnings from many previous projects and should 
 ### Adjust the template to your needs
 
 - Use this repo [as a template](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template).
-- Replace all occurrences of "Bingo" in the relevant CMakeLists.txt with the name of your project
-  - Capitalization matters here: `Bingo` means the name of the project, while `bingo` is used in file names.
-  - Remember to rename the `include/bingo` directory to use your project's lowercase name and update all relevant `#include`s accordingly.
+- Replace all occurrences of "LmiSolver" in the relevant CMakeLists.txt with the name of your project
+  - Capitalization matters here: `LmiSolver` means the name of the project, while `lmisolver` is used in file names.
+  - Remember to rename the `include/lmisolver` directory to use your project's lowercase name and update all relevant `#include`s accordingly.
 - Replace the source files with your own
 - For header-only libraries: see the comments in [CMakeLists.txt](CMakeLists.txt)
 - Add [your project's codecov token](https://docs.codecov.io/docs/quick-start) to your project's github secrets under `CODECOV_TOKEN`
@@ -56,7 +56,7 @@ Use the following command to build and run the executable target.
 ```bash
 cmake -S. -B build
 cmake --build build
-./build/standalone/Bingo --help
+./build/standalone/LmiSolver --help
 ```
 
 ### Build and run test suite
@@ -70,7 +70,7 @@ cd build/test
 CTEST_OUTPUT_ON_FAILURE=1 ctest
 
 # or maybe simply call the executable: 
-./build/test/BingoTests
+./build/test/LmiSolverTests
 ```
 
 To collect code coverage information, run CMake with the `-DENABLE_TEST_COVERAGE=1` option.
@@ -94,7 +94,7 @@ See [Format.cmake](https://github.com/TheLartians/Format.cmake) for details.
 
 ### Build the documentation
 
-The documentation is automatically built and [published](https://luk036.github.io/bingo-cpp) whenever a [GitHub Release](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) is created.
+The documentation is automatically built and [published](https://luk036.github.io/lmi-solver-cpp) whenever a [GitHub Release](https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository) is created.
 To manually build documentation, call the following command.
 
 ```bash

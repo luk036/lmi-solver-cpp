@@ -1,14 +1,9 @@
-name: MacOS
+name: Benchmark
 
 on:
   push:
-    branches:
-      - master
-      - main
-  pull_request:
-    branches:
-      - master
-      - main
+    tags:
+      - "*"
 
 env:
   CTEST_OUTPUT_ON_FAILURE: 1
@@ -16,7 +11,7 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -26,16 +21,13 @@ jobs:
           path: "**/cpm_modules"
           key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
 
-      - name: Install project dependencies
-        run: brew install openblas
-
       - name: configure
-        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Debug
+        run: cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
 
       - name: build
         run: cmake --build build -j4
 
-      - name: test
+      - name: benchmark
         run: |
-          cd build/test
-          ctest --build-config Debug
+          cd build/bench
+          ctest -V --build-config Release

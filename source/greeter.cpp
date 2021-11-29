@@ -1,12 +1,12 @@
-#include <bingo/greeter.h>
+#include <lmisolver/greeter.h>
 #include <fmt/format.h>
 
-using namespace bingo;
+using namespace lmisolver;
 using namespace std;
 
-Bingo::Bingo(string _name) : name(move(_name)) {}
+LmiSolver::LmiSolver(string _name) : name(move(_name)) {}
 
-std::string Bingo::greet(LanguageCode lang) const {
+std::string LmiSolver::greet(LanguageCode lang) const {
     switch (lang) {
         default:
         case LanguageCode::EN:

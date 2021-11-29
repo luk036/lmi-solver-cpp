@@ -10,10 +10,10 @@ LINKS_NAVBAR1 = [
 
 # LINKS_NAVBAR1 = [
 #     (None, 'pages', [(None, 'about')]),
-#     (None, 'namespaces', [(None, 'namespacebingo')]),
+#     (None, 'namespaces', [(None, 'namespacelmisolver')]),
 # ]
 #
 # LINKS_NAVBAR2 = [
-#     (None, 'annotated', [(None, 'classbingo_1_1_bingo')]),
-#     (None, 'files', [(None, 'bingo_8h')]),
+#     (None, 'annotated', [(None, 'classlmisolver_1_1_lmisolver')]),
+#     (None, 'files', [(None, 'lmisolver_8h')]),
 # ]
