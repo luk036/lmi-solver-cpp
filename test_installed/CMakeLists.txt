@@ -18,7 +18,7 @@ include(../cmake/tools.cmake)
 # ---- Dependencies ----
 
 include(../cmake/CPM.cmake)
-include(specific.cmake)
+include(../specific.cmake)
 
 find_package(${PROJECT_NAME} REQUIRED)
 
