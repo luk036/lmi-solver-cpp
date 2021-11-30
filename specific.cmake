@@ -1,5 +1,3 @@
-CPMAddPackage("gh:microsoft/GSL@3.1.0")
-
 CPMAddPackage(
   NAME fmt
   GIT_TAG 7.1.3
@@ -21,9 +19,11 @@ endif(xtensor_ADDED)
 
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG 1.0.4
+  GIT_TAG 1.1
   GITHUB_REPOSITORY luk036/ellalgo-cpp
   OPTIONS "INSTALL_ONLY YES" # create an installable target
 )
+
+CPMAddPackage("gh:microsoft/GSL@3.1.0")
 
 set(SPECIFIC_LIBS EllAlgo::EllAlgo fmt::fmt GSL)
