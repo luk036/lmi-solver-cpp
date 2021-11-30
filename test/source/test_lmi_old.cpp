@@ -6,8 +6,8 @@
 #include <ellalgo/cutting_plane.hpp>
 #include <ellalgo/ell.hpp>
 #include <ellalgo/ell_stable.hpp>
-#include <lmisolver/lmi_old_oracle.hpp>
 #include <gsl/span>
+#include <lmisolver/lmi_old_oracle.hpp>
 #include <vector>
 // #include <xtensor-blas/xlinalg.hpp>
 

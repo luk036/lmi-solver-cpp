@@ -1,8 +1,8 @@
 #include <ellalgo/cutting_plane.hpp>
 #include <ellalgo/ell.hpp>
+#include <gsl/span>
 #include <lmisolver/lmi_old_oracle.hpp>
 #include <lmisolver/lmi_oracle.hpp>
-#include <gsl/span>
 #include <vector>
 
 #include "benchmark/benchmark.h"

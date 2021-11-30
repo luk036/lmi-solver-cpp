@@ -1,5 +1,5 @@
-#include <lmisolver/lmi_oracle.hpp>
 #include <ellalgo/utility.hpp>
+#include <lmisolver/lmi_oracle.hpp>
 // #include <xtensor-blas/xlinalg.hpp>
 
 using Arr = xt::xarray<double, xt::layout_type::row_major>;

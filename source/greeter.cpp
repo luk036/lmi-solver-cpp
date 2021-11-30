@@ -1,5 +1,5 @@
-#include <lmisolver/greeter.h>
 #include <fmt/format.h>
+#include <lmisolver/greeter.h>
 
 using namespace lmisolver;
 using namespace std;
