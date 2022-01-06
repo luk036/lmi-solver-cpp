@@ -12,7 +12,7 @@ using Cut = std::tuple<Arr, double>;
  * @param[in] x
  * @return std::optional<Cut>
  */
-std::optional<Cut> lmi_old_oracle::operator()(const Arr& x) {
+auto lmi_old_oracle::operator()(const Arr& x) -> std::optional<Cut> {
     const auto n = x.size();
 
     auto A = Arr{this->_F0};

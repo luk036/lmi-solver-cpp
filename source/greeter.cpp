@@ -6,7 +6,7 @@ using namespace std;
 
 LmiSolver::LmiSolver(string _name) : name(move(_name)) {}
 
-std::string LmiSolver::greet(LanguageCode lang) const {
+auto LmiSolver::greet(LanguageCode lang) const -> std::string {
     switch (lang) {
         default:
         case LanguageCode::EN:
