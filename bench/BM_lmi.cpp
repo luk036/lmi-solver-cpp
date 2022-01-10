@@ -1,11 +1,17 @@
-#include <ellalgo/cutting_plane.hpp>
-#include <ellalgo/ell.hpp>
-#include <gsl/span>
-#include <lmisolver/lmi_old_oracle.hpp>
-#include <lmisolver/lmi_oracle.hpp>
-#include <vector>
+#include <ellalgo/cutting_plane.hpp>     // for cutting_plane_dc
+#include <ellalgo/ell.hpp>               // for ell
+#include <gsl/span>                      // for span
+#include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle
+#include <lmisolver/lmi_oracle.hpp>      // for lmi_oracle
+#include <tuple>                         // for tuple
+#include <type_traits>                   // for move
+#include <vector>                        // for vector
+#include <xtensor/xlayout.hpp>           // for layout_type, layout_type::ro...
+#include <xtensor/xmath.hpp>             // for sum
+#include <xtensor/xoperation.hpp>        // for operator*
+#include <xtensor/xtensor_forward.hpp>   // for xarray
 
-#include "benchmark/benchmark.h"
+#include "benchmark/benchmark.h"  // for BENCHMARK, State, BENCHMARK_...
 
 /**
  * @brief

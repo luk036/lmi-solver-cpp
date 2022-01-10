@@ -1,8 +1,12 @@
 // -*- coding: utf-8 -*-
 #pragma once
 
-#include <ellalgo/utility.hpp>
-#include <xtensor/xarray.hpp>
+#include <cstddef>                      // for size_t
+#include <ellalgo/utility.hpp>          // for zeros
+#include <utility>                      // for pair
+#include <xtensor/xcontainer.hpp>       // for xcontainer
+#include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
+#include <xtensor/xtensor_forward.hpp>  // for xarray
 
 /**
  * @brief LDLT factorization for LMI

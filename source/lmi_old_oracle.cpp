@@ -1,5 +1,17 @@
-#include <ellalgo/utility.hpp>
-#include <lmisolver/lmi_old_oracle.hpp>
+#include <ellalgo/utility.hpp>           // for zeros
+#include <gsl/span>                      // for span<>::reference, span, spa...
+#include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle::Arr, lmi_old...
+#include <optional>                      // for optional
+#include <tuple>                         // for tuple
+#include <type_traits>                   // for move
+#include <xtensor/xarray.hpp>            // for xarray_container
+#include <xtensor/xcontainer.hpp>        // for xcontainer<>::const_reference
+#include <xtensor/xlayout.hpp>           // for layout_type, layout_type::ro...
+#include <xtensor/xoperation.hpp>        // for xfunction_type_t, operator-
+#include <xtensor/xsemantic.hpp>         // for xsemantic_base
+#include <xtensor/xtensor_forward.hpp>   // for xarray
+
+#include "lmisolver/ldlt_ext.hpp"  // for ldlt_ext
 
 // #include <xtensor-blas/xlinalg.hpp>
 

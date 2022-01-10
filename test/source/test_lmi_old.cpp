@@ -1,14 +1,25 @@
 /*
  *  Distributed under the MIT License (See accompanying file /LICENSE )
  */
-#include <doctest/doctest.h>
+#include <doctest/doctest.h>  // for ResultBuilder, CHECK, TestCase
 
-#include <ellalgo/cutting_plane.hpp>
-#include <ellalgo/ell.hpp>
-#include <ellalgo/ell_stable.hpp>
-#include <gsl/span>
-#include <lmisolver/lmi_old_oracle.hpp>
-#include <vector>
+#include <__tuple>                       // for tuple_element<>::type
+#include <ellalgo/cutting_plane.hpp>     // for cutting_plane_dc
+#include <ellalgo/ell.hpp>               // for ell
+#include <ellalgo/ell_stable.hpp>        // for ell_stable
+#include <gsl/span>                      // for span
+#include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle
+#include <optional>                      // for optional
+#include <tuple>                         // for tuple
+#include <type_traits>                   // for move, add_const<>::type
+#include <vector>                        // for vector
+#include <xtensor/xaccessible.hpp>       // for xconst_accessible
+#include <xtensor/xarray.hpp>            // for xarray_container
+#include <xtensor/xlayout.hpp>           // for layout_type, layout_type::ro...
+#include <xtensor/xmath.hpp>             // for sum
+#include <xtensor/xoperation.hpp>        // for xfunction_type_t, operator*
+#include <xtensor/xreducer.hpp>          // for xreducer
+#include <xtensor/xtensor_forward.hpp>   // for xarray
 // #include <xtensor-blas/xlinalg.hpp>
 
 /**

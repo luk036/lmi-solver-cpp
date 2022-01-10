@@ -1,6 +1,10 @@
-#include <doctest/doctest.h>
+#include <doctest/doctest.h>  // for ResultBuilder, TestCase, CHECK
 
-#include <lmisolver/ldlt_ext.hpp>
+#include <lmisolver/ldlt_ext.hpp>       // for ldlt_ext
+#include <xtensor/xarray.hpp>           // for xarray_container
+#include <xtensor/xcontainer.hpp>       // for xcontainer<>::inner_shape_type
+#include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
+#include <xtensor/xtensor_forward.hpp>  // for xarray
 // #include <xtensor/xarray.hpp>
 
 using Arr = xt::xarray<double, xt::layout_type::row_major>;

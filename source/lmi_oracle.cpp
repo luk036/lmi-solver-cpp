@@ -1,5 +1,17 @@
-#include <ellalgo/utility.hpp>
-#include <lmisolver/lmi_oracle.hpp>
+#include <stddef.h>  // for size_t
+
+#include <ellalgo/utility.hpp>          // for zeros
+#include <gsl/span>                     // for span, span<>::element_type
+#include <lmisolver/lmi_oracle.hpp>     // for lmi_oracle::Arr, lmi_oracle::Cut
+#include <optional>                     // for optional
+#include <tuple>                        // for tuple
+#include <type_traits>                  // for move
+#include <xtensor/xarray.hpp>           // for xarray_container
+#include <xtensor/xcontainer.hpp>       // for xcontainer
+#include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
+#include <xtensor/xtensor_forward.hpp>  // for xarray
+
+#include "lmisolver/ldlt_ext.hpp"  // for ldlt_ext
 // #include <xtensor-blas/xlinalg.hpp>
 
 using Arr = xt::xarray<double, xt::layout_type::row_major>;

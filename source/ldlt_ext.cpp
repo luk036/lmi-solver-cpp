@@ -1,7 +1,9 @@
 // -*- coding: utf-8 -*-
+#include <assert.h>  // for assert
+
+#include <cmath>  // for sqrt
 #include <lmisolver/ldlt_ext.hpp>
-#include <stdexcept>
-#include <xtensor/xtensor_config.hpp>
+#include <xtensor/xarray.hpp>  // for xarray_container
 
 /**
  * @brief witness that certifies $A$ is not
