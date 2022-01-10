@@ -3,13 +3,13 @@
  */
 #include <doctest/doctest.h>  // for ResultBuilder, CHECK, TestCase
 
-#include <__tuple>                       // for tuple_element<>::type
 #include <ellalgo/cutting_plane.hpp>     // for cutting_plane_dc
 #include <ellalgo/ell.hpp>               // for ell
 #include <ellalgo/ell_stable.hpp>        // for ell_stable
 #include <gsl/span>                      // for span
 #include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle
 #include <optional>                      // for optional
+#include <tuple>                         // for tuple_element<>::type
 #include <tuple>                         // for tuple
 #include <type_traits>                   // for move, add_const<>::type
 #include <vector>                        // for vector

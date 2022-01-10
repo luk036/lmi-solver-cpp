@@ -1,7 +1,7 @@
 #include <fmt/format.h>         // for format
 #include <lmisolver/greeter.h>  // for LmiSolver, LanguageCode, LanguageCode...
 
-#include <__config>     // for std
+// #include <__config>     // for std
 #include <iosfwd>       // for string
 #include <string>       // for basic_string
 #include <type_traits>  // for move

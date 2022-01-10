@@ -1,6 +1,6 @@
 #include <doctest/doctest.h>  // for ResultBuilder, TestCase, CHECK, TEST_CASE
 
-#include <__config>     // for std
+// #include <__config>     // for std
 #include <limits>       // for numeric_limits
 #include <type_traits>  // for make_signed_t
 
