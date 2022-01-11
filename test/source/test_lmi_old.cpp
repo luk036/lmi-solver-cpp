@@ -10,7 +10,6 @@
 #include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle
 #include <optional>                      // for optional
 #include <tuple>                         // for tuple_element<>::type
-#include <tuple>                         // for tuple
 #include <type_traits>                   // for move, add_const<>::type
 #include <vector>                        // for vector
 #include <xtensor/xaccessible.hpp>       // for xconst_accessible
