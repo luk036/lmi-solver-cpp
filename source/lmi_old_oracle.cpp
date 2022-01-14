@@ -1,4 +1,4 @@
-#include <ellalgo/utility.hpp>           // for zeros
+// #include <ellalgo/utility.hpp>           // for zeros
 #include <gsl/span>                      // for span<>::reference, span, spa...
 #include <lmisolver/lmi_old_oracle.hpp>  // for lmi_old_oracle::Arr, lmi_old...
 #include <optional>                      // for optional
@@ -36,7 +36,7 @@ auto lmi_old_oracle::operator()(const Arr& x) -> std::optional<Cut> {
         return {};
     }
     const auto ep = this->_Q.witness();
-    auto g = zeros(x);
+    Arr g = xt::zeros<double>(x);
     for (auto i = 0U; i != n; ++i) {
         g(i) = this->_Q.sym_quad(this->_F[i]);
     }

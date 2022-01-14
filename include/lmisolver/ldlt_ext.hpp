@@ -1,9 +1,10 @@
 // -*- coding: utf-8 -*-
 #pragma once
 
-#include <cstddef>                      // for size_t
-#include <ellalgo/utility.hpp>          // for zeros
-#include <utility>                      // for pair
+// #include <ellalgo/utility.hpp>          // for zeros
+#include <cstddef>  // for size_t
+#include <utility>  // for pair
+#include <xtensor/xarray.hpp>           // for xarray
 #include <xtensor/xcontainer.hpp>       // for xcontainer
 #include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
 #include <xtensor/xtensor_forward.hpp>  // for xarray
@@ -37,7 +38,8 @@ class ldlt_ext {
      *
      * @param[in] N dimension
      */
-    explicit ldlt_ext(size_t N) : witness_vec{zeros({N})}, _n{N}, T{zeros({N, N})} {}
+    explicit ldlt_ext(size_t N)
+        : witness_vec{xt::zeros<double>({N})}, _n{N}, T{xt::zeros<double>({N, N})} {}
 
     ldlt_ext(const ldlt_ext&) = delete;
     ldlt_ext& operator=(const ldlt_ext&) = delete;

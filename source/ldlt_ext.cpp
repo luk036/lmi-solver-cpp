@@ -58,7 +58,7 @@ auto ldlt_ext::sym_quad(const Vec& A) const -> double {
 auto ldlt_ext::sqrt() -> Mat {
     assert(this->is_spd());
 
-    auto M = zeros({this->_n, this->_n});
+    Mat M = xt::zeros<double>({this->_n, this->_n});
     for (auto i = 0U; i != this->_n; ++i) {
         M(i, i) = std::sqrt(this->T(i, i));
         for (auto j = i + 1; j != this->_n; ++j) {
