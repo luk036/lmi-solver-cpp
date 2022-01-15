@@ -1,6 +1,6 @@
 #include <stddef.h>  // for size_t
 
-// #include <ellalgo/utility.hpp>          // for zeros
+#include <ellalgo/utility.hpp>          // for zeros
 #include <gsl/span>                     // for span, span<>::element_type
 #include <lmisolver/lmi0_oracle.hpp>    // for lmi0_oracle::Arr, lmi0_oracle...
 #include <optional>                     // for optional
@@ -38,7 +38,7 @@ auto lmi0_oracle::operator()(const Arr& x) -> std::optional<Cut> {
         return {};
     }
     auto ep = this->_Q.witness();
-    Arr g = xt::zeros<double>(x);
+    auto g = zeros({x.size()});
     for (auto i = 0U; i != n; ++i) {
         g(i) = -_Q.sym_quad(this->_F[i]);
     }
