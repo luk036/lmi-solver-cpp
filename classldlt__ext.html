@@ -49,8 +49,9 @@
     <div class="m-row">
       <div class="m-col-l-10 m-push-l-1">
         <h1>
+          <div class="m-doc-include m-code m-inverted m-right-m m-text-right"><span class="cp">#include</span> <a class="cpf" href="ldlt__ext_8hpp.html">&lt;lmisolver/ldlt_ext.hpp&gt;</a></div>
+          <div class="m-doc-template">template&lt;typename Arr036&gt;</div>
           ldlt_ext <span class="m-thin">class</span>
-          <div class="m-doc-include m-code m-inverted m-text-right"><span class="cp">#include</span> <a class="cpf" href="ldlt__ext_8hpp.html">&lt;lmisolver/ldlt_ext.hpp&gt;</a></div>
         </h1>
         <p>LDLT factorization for LMI.</p>
         <div class="m-block m-default">
@@ -71,15 +72,15 @@
           <h2><a href="#typeless-methods">Constructors, destructors, conversion operators</a></h2>
           <dl class="m-doc">
             <dt>
-              <span class="m-doc-wrap-bumper"><a href="#a530d84a21166576f7d43ac2c5258763f" class="m-doc">ldlt_ext</a>(</span><span class="m-doc-wrap">size_t N) <span class="m-label m-flat m-info">explicit</span> </span>
+              <span class="m-doc-wrap-bumper"><a href="#a44705490bca7a0bbb4d9351f4115a26a" class="m-doc">ldlt_ext</a>(</span><span class="m-doc-wrap">size_t N) <span class="m-label m-flat m-info">explicit</span> </span>
             </dt>
             <dd>Construct a new ldlt ext object.</dd>
-            <dt id="a817ef1ac6511cd530b96e2d165f1edb0">
-              <span class="m-doc-wrap-bumper"><a href="#a817ef1ac6511cd530b96e2d165f1edb0" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap">const <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;) <span class="m-label m-flat m-danger">deleted</span></span>
+            <dt id="a96bb0a9b79a0d9c8faa5e32778c9b4ca">
+              <span class="m-doc-wrap-bumper"><a href="#a96bb0a9b79a0d9c8faa5e32778c9b4ca" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap">const <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;) <span class="m-label m-flat m-danger">deleted</span></span>
             </dt>
             <dd><span></span></dd>
-            <dt id="a3cc7bdedaf89c9259de9ae259f431f55">
-              <span class="m-doc-wrap-bumper"><a href="#a3cc7bdedaf89c9259de9ae259f431f55" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap"><a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
+            <dt id="a0ccb09bae92358247f484749d5b67465">
+              <span class="m-doc-wrap-bumper"><a href="#a0ccb09bae92358247f484749d5b67465" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap"><a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;&amp;) <span class="m-label m-flat m-info">defaulted</span></span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -87,33 +88,33 @@
         <section id="pub-methods">
           <h2><a href="#pub-methods">Public functions</a></h2>
           <dl class="m-doc">
-            <dt id="ae4c59a77c6cc92a047938b5ead599587">
-              <span class="m-doc-wrap-bumper">auto <a href="#ae4c59a77c6cc92a047938b5ead599587" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap">const <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;) -&gt; <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp; <span class="m-label m-flat m-danger">deleted</span></span>
+            <dt id="a73d5d7cf1367e7a723f937da2b636025">
+              <span class="m-doc-wrap-bumper">auto <a href="#a73d5d7cf1367e7a723f937da2b636025" class="m-doc-self">operator=</a>(</span><span class="m-doc-wrap">const <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp;) -&gt; <a href="classldlt__ext.html" class="m-doc">ldlt_<wbr />ext</a>&amp; <span class="m-label m-flat m-danger">deleted</span></span>
             </dt>
             <dd><span></span></dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a92cc271c5d77b7840e0337d5fd3d159d" class="m-doc">factorize</a>(</span><span class="m-doc-wrap">const Mat&amp; A) -&gt; bool -&gt; auto</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#adcf0197d960a9e39e4da972d32219fdd" class="m-doc">factorize</a>(</span><span class="m-doc-wrap">const Mat&amp; A) -&gt; bool -&gt; auto</span>
             </dt>
             <dd>Perform LDLT Factorization.</dd>
             <dt>
               <div class="m-doc-template">template&lt;typename Callable, bool Allow_semidefinite = false&gt;</div>
-              <span class="m-doc-wrap-bumper">auto <a href="#aa4ac9a45b7100b0b2b40adba13e3762c" class="m-doc">factor</a>(</span><span class="m-doc-wrap">Callable&amp;&amp; getA) -&gt; bool -&gt; auto</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a78fe73cb1ad5d7ba392afaf14003d3a4" class="m-doc">factor</a>(</span><span class="m-doc-wrap">Callable&amp;&amp; getA) -&gt; bool -&gt; auto</span>
             </dt>
             <dd>Perform LDLT Factorization (Lazy evaluation)</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a3865cb5b1a8e47565478accc0f819739" class="m-doc">is_spd</a>(</span><span class="m-doc-wrap">) const noexcept -&gt; bool -&gt; auto</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a777e5966dd02189d1c60b4cf5e76043a" class="m-doc">is_spd</a>(</span><span class="m-doc-wrap">) const noexcept -&gt; bool -&gt; auto</span>
             </dt>
             <dd>Is $A$ symmetric positive definite (spd)</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a2acc8dc9a070fc75b3bcd24feec9dafc" class="m-doc">witness</a>(</span><span class="m-doc-wrap">) -&gt; double -&gt; auto</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#a6d4bf73835d74bb0b368e453cda31f57" class="m-doc">witness</a>(</span><span class="m-doc-wrap">) -&gt; double -&gt; auto</span>
             </dt>
             <dd>witness that certifies $A$ is not symmetric positive definite (spd)</dd>
             <dt>
-              <span class="m-doc-wrap-bumper">auto <a href="#a6cbac3f514c1a3b2ca508870400ed7b4" class="m-doc">sym_quad</a>(</span><span class="m-doc-wrap">const Vec&amp; A) const -&gt; double -&gt; auto</span>
+              <span class="m-doc-wrap-bumper">auto <a href="#ac5be5103d215bbb0949897563e932453" class="m-doc">sym_quad</a>(</span><span class="m-doc-wrap">const Vec&amp; A) const -&gt; double -&gt; auto</span>
             </dt>
             <dd>Calculate v&#x27;*{A}(p,p)*v.</dd>
-            <dt id="a5190bbb8cbebb0a39a7ca1f8e1ec48b4">
-              <span class="m-doc-wrap-bumper">auto <a href="#a5190bbb8cbebb0a39a7ca1f8e1ec48b4" class="m-doc-self">sqrt</a>(</span><span class="m-doc-wrap">) -&gt; Mat -&gt; auto</span>
+            <dt id="a6597b643aa3084c1536cc33c69561089">
+              <span class="m-doc-wrap-bumper">auto <a href="#a6597b643aa3084c1536cc33c69561089" class="m-doc-self">sqrt</a>(</span><span class="m-doc-wrap">) -&gt; Mat -&gt; auto</span>
             </dt>
             <dd><span></span></dd>
           </dl>
@@ -121,21 +122,24 @@
         <section id="pub-attribs">
           <h2><a href="#pub-attribs">Public variables</a></h2>
           <dl class="m-doc">
-            <dt id="a0da877ed0fabce51777fcf693e988d3f">
-              Rng <a href="#a0da877ed0fabce51777fcf693e988d3f" class="m-doc-self">p</a>
+            <dt id="a8fc8d170aad7deef843b271824cf199f">
+              Rng <a href="#a8fc8d170aad7deef843b271824cf199f" class="m-doc-self">p</a>
             </dt>
             <dd>the rows where the process starts and stops</dd>
-            <dt id="a54d9ec259cf241a7828fb1181a205f1b">
-              Vec <a href="#a54d9ec259cf241a7828fb1181a205f1b" class="m-doc-self">witness_vec</a>
+            <dt id="afa797d3f829aff2ee86b968f9cf280ff">
+              Vec <a href="#afa797d3f829aff2ee86b968f9cf280ff" class="m-doc-self">witness_vec</a>
             </dt>
             <dd>witness vector</dd>
           </dl>
         </section>
         <section>
           <h2>Function documentation</h2>
-          <section class="m-doc-details" id="a530d84a21166576f7d43ac2c5258763f"><div>
+          <section class="m-doc-details" id="a44705490bca7a0bbb4d9351f4115a26a"><div>
             <h3>
-              <span class="m-doc-wrap-bumper"> ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a530d84a21166576f7d43ac2c5258763f" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap">size_t N) <span class="m-label m-info">explicit</span> </span></span>
+              <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
+              </div>
+              <span class="m-doc-wrap-bumper"> ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a44705490bca7a0bbb4d9351f4115a26a" class="m-doc-self">ldlt_ext</a>(</span><span class="m-doc-wrap">size_t N) <span class="m-label m-info">explicit</span> </span></span>
             </h3>
             <p>Construct a new ldlt ext object.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -150,9 +154,12 @@
               </tbody>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a92cc271c5d77b7840e0337d5fd3d159d"><div>
+          <section class="m-doc-details" id="adcf0197d960a9e39e4da972d32219fdd"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a92cc271c5d77b7840e0337d5fd3d159d" class="m-doc-self">factorize</a>(</span><span class="m-doc-wrap">const Mat&amp; A) -&gt; bool</span></span>
+              <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#adcf0197d960a9e39e4da972d32219fdd" class="m-doc-self">factorize</a>(</span><span class="m-doc-wrap">const Mat&amp; A) -&gt; bool</span></span>
             </h3>
             <p>Perform LDLT Factorization.</p>
             <table class="m-table m-fullwidth m-flat">
@@ -168,12 +175,13 @@
             </table>
 <p>If $A$ is positive definite, then $p$ is zero. If it is not, then $p$ is a positive integer, such that $v = R^-1 e_p$ is a certificate vector to make $v&#x27;*A[:p,:p]*v &lt; 0$</p>
           </div></section>
-          <section class="m-doc-details" id="aa4ac9a45b7100b0b2b40adba13e3762c"><div>
+          <section class="m-doc-details" id="a78fe73cb1ad5d7ba392afaf14003d3a4"><div>
             <h3>
               <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
                 template&lt;typename Callable, bool Allow_semidefinite = false&gt;
               </div>
-              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#aa4ac9a45b7100b0b2b40adba13e3762c" class="m-doc-self">factor</a>(</span><span class="m-doc-wrap">Callable&amp;&amp; getA) -&gt; bool</span></span>
+              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a78fe73cb1ad5d7ba392afaf14003d3a4" class="m-doc-self">factor</a>(</span><span class="m-doc-wrap">Callable&amp;&amp; getA) -&gt; bool</span></span>
             </h3>
             <p>Perform LDLT Factorization (Lazy evaluation)</p>
             <table class="m-table m-fullwidth m-flat">
@@ -187,11 +195,14 @@
                 </tr>
               </tbody>
             </table>
-<p>See also: <a href="classldlt__ext.html#a92cc271c5d77b7840e0337d5fd3d159d" class="m-doc">factorize()</a></p>
+<p>See also: <a href="classldlt__ext.html#adcf0197d960a9e39e4da972d32219fdd" class="m-doc">factorize()</a></p>
           </div></section>
-          <section class="m-doc-details" id="a3865cb5b1a8e47565478accc0f819739"><div>
+          <section class="m-doc-details" id="a777e5966dd02189d1c60b4cf5e76043a"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a3865cb5b1a8e47565478accc0f819739" class="m-doc-self">is_spd</a>(</span><span class="m-doc-wrap">) const noexcept -&gt; bool</span></span>
+              <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a777e5966dd02189d1c60b4cf5e76043a" class="m-doc-self">is_spd</a>(</span><span class="m-doc-wrap">) const noexcept -&gt; bool</span></span>
             </h3>
             <p>Is $A$ symmetric positive definite (spd)</p>
             <table class="m-table m-fullwidth m-flat">
@@ -203,9 +214,12 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a2acc8dc9a070fc75b3bcd24feec9dafc"><div>
+          <section class="m-doc-details" id="a6d4bf73835d74bb0b368e453cda31f57"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a2acc8dc9a070fc75b3bcd24feec9dafc" class="m-doc-self">witness</a>(</span><span class="m-doc-wrap">) -&gt; double</span></span>
+              <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6d4bf73835d74bb0b368e453cda31f57" class="m-doc-self">witness</a>(</span><span class="m-doc-wrap">) -&gt; double</span></span>
             </h3>
             <p>witness that certifies $A$ is not symmetric positive definite (spd)</p>
             <table class="m-table m-fullwidth m-flat">
@@ -217,9 +231,12 @@
               </tfoot>
             </table>
           </div></section>
-          <section class="m-doc-details" id="a6cbac3f514c1a3b2ca508870400ed7b4"><div>
+          <section class="m-doc-details" id="ac5be5103d215bbb0949897563e932453"><div>
             <h3>
-              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#a6cbac3f514c1a3b2ca508870400ed7b4" class="m-doc-self">sym_quad</a>(</span><span class="m-doc-wrap">const Vec&amp; A) const -&gt; double</span></span>
+              <div class="m-doc-template">
+                template&lt;typename Arr036&gt;
+              </div>
+              <span class="m-doc-wrap-bumper">auto ldlt_<wbr />ext&lt;Arr036&gt;::<wbr /></span><span class="m-doc-wrap"><span class="m-doc-wrap-bumper"><a href="#ac5be5103d215bbb0949897563e932453" class="m-doc-self">sym_quad</a>(</span><span class="m-doc-wrap">const Vec&amp; A) const -&gt; double</span></span>
             </h3>
             <p>Calculate v&#x27;*{A}(p,p)*v.</p>
             <table class="m-table m-fullwidth m-flat">

@@ -58,7 +58,7 @@ cmake --build build
 <span class="nb">cd</span> build/test
 <span class="nv">CTEST_OUTPUT_ON_FAILURE</span><span class="o">=</span><span class="m">1</span> ctest
 
-<span class="c1"># or maybe simply call the executable: </span>
+<span class="c1"># or maybe simply call the executable:</span>
 ./build/test/LmiSolverTests</pre><p>To collect code coverage information, run CMake with the <code>-DENABLE_TEST_COVERAGE=1</code> option.</p></section><section id="autotoc_md6"><h4><a href="#autotoc_md6">Run clang-format</a></h4><p>Use the following commands from the project&#x27;s root directory to check and fix C++ and CMake source style. This requires <em>clang-format</em>, <em>cmake-format</em> and <em>pyyaml</em> to be installed on the current system.</p><pre class="m-code">cmake -S. -B build
 
 <span class="c1"># view changes</span>
