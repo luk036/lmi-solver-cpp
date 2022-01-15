@@ -4,7 +4,7 @@
 //#include "mat.hpp"
 #include <gsl/span>
 #include <optional>
-#include <xtensor/xarray.hpp>
+// #include <xtensor/xarray.hpp>
 
 #include "ldlt_ext.hpp"
 
@@ -16,23 +16,22 @@
  *        find  x
  *        s.t.  F * x >= 0
  */
-class lmi0_oracle {
-    using Arr = xt::xarray<double, xt::layout_type::row_major>;
-    using Cut = std::tuple<Arr, double>;
+template <typename Arr036> class lmi0_oracle {
+    using Cut = std::tuple<Arr036, double>;
 
   private:
-    const gsl::span<const Arr> _F;
+    const gsl::span<const Arr036> _F;
     const size_t _n;
 
   public:
-    ldlt_ext _Q;
+    ldlt_ext<Arr036> _Q;
 
     /**
      * @brief Construct a new lmi0 oracle object
      *
      * @param[in] F
      */
-    explicit lmi0_oracle(gsl::span<const Arr> F) : _F{F}, _n{F[0].shape()[0]}, _Q(_n) {}
+    explicit lmi0_oracle(gsl::span<const Arr036> F);
 
     /**
      * @brief
@@ -40,5 +39,5 @@ class lmi0_oracle {
      * @param[in] x
      * @return std::optional<Cut>
      */
-    auto operator()(const Arr& x) -> std::optional<Cut>;
+    auto operator()(const Arr036& x) -> std::optional<Cut>;
 };

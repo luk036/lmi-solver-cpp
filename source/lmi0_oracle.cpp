@@ -1,6 +1,5 @@
 #include <stddef.h>  // for size_t
 
-#include <ellalgo/utility.hpp>          // for zeros
 #include <gsl/span>                     // for span, span<>::element_type
 #include <lmisolver/lmi0_oracle.hpp>    // for lmi0_oracle::Arr, lmi0_oracle...
 #include <optional>                     // for optional
@@ -14,8 +13,13 @@
 #include "lmisolver/ldlt_ext.hpp"  // for ldlt_ext
 // #include <xtensor-blas/xlinalg.hpp>
 
-using Arr = xt::xarray<double, xt::layout_type::row_major>;
-using Cut = std::tuple<Arr, double>;
+/**
+ * @brief Construct a new lmi0 oracle object
+ *
+ * @param[in] F
+ */
+template <typename Arr036> lmi0_oracle<Arr036>::lmi0_oracle(gsl::span<const Arr036> F)
+    : _F{F}, _n{F[0].shape()[0]}, _Q(_n) {}
 
 /**
  * @brief
@@ -23,7 +27,8 @@ using Cut = std::tuple<Arr, double>;
  * @param[in] x
  * @return auto
  */
-auto lmi0_oracle::operator()(const Arr& x) -> std::optional<Cut> {
+template <typename Arr036> auto lmi0_oracle<Arr036>::operator()(const Arr036& x)
+    -> std::optional<typename lmi0_oracle<Arr036>::Cut> {
     auto n = x.size();
 
     auto getA = [&, this](size_t i, size_t j) -> double {
@@ -38,9 +43,12 @@ auto lmi0_oracle::operator()(const Arr& x) -> std::optional<Cut> {
         return {};
     }
     auto ep = this->_Q.witness();
-    auto g = zeros(x);
+    auto g = Arr036{xt::zeros<double>({n})};
     for (auto i = 0U; i != n; ++i) {
         g(i) = -_Q.sym_quad(this->_F[i]);
     }
     return {{std::move(g), ep}};
 }
+
+using Arr = xt::xarray<double, xt::layout_type::row_major>;
+template class lmi0_oracle<Arr>;
