@@ -12,7 +12,7 @@ option(INSTALL_ONLY "Enable for installation only" OFF)
 # Note: update this to your new project's name and version
 project(
   LmiSolver
-  VERSION 1.0
+  VERSION 1.1
   LANGUAGES CXX)
 
 # ---- Include guards ----
