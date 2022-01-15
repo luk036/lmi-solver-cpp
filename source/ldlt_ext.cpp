@@ -1,9 +1,7 @@
 // -*- coding: utf-8 -*-
-#include <assert.h>  // for assert
-
-#include <cmath>  // for sqrt
+#include <cassert>  // for assert
+#include <cmath>    // for sqrt
 #include <lmisolver/ldlt_ext.hpp>
-#include <xtensor/xarray.hpp>  // for xarray_container
 
 /**
  * @brief witness that certifies $A$ is not
@@ -11,7 +9,7 @@
  *
  * @return auto
  */
-auto ldlt_ext::witness() -> double {
+template <typename Arr036> auto ldlt_ext<Arr036>::witness() -> double {
     assert(!this->is_spd());
 
     // const auto& [start, n] = this->p;
@@ -34,7 +32,8 @@ auto ldlt_ext::witness() -> double {
  * @param[in] A
  * @return double
  */
-auto ldlt_ext::sym_quad(const Vec& A) const -> double {
+template <typename Arr036>
+auto ldlt_ext<Arr036>::sym_quad(const typename ldlt_ext<Arr036>::Vec& A) const -> double {
     auto res = double{};
     const auto& v = this->witness_vec;
     // const auto& [start, stop] = this->p;
@@ -50,15 +49,25 @@ auto ldlt_ext::sym_quad(const Vec& A) const -> double {
     return res;
 }
 
+#include <xtensor/xarray.hpp>           // for xarray
+#include <xtensor/xcontainer.hpp>       // for xcontainer
+#include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
+#include <xtensor/xtensor_forward.hpp>  // for xarray
+
+using Arr = xt::xarray<double, xt::layout_type::row_major>;
+
+template <typename Arr036> ldlt_ext<Arr036>::ldlt_ext(size_t N)
+    : witness_vec{xt::zeros<double>({N})}, _n{N}, T{xt::zeros<double>({N, N})} {}
+
 /**
  * @brief Return upper triangular matrix $R$ where $A = R^T R$
  *
- * @return Mat
+ * @return typename ldlt_ext<Arr036>::Mat
  */
-auto ldlt_ext::sqrt() -> Mat {
+template <typename Arr036> auto ldlt_ext<Arr036>::sqrt() -> typename ldlt_ext<Arr036>::Mat {
     assert(this->is_spd());
 
-    Mat M = xt::zeros<double>({this->_n, this->_n});
+    ldlt_ext<Arr036>::Mat M = xt::zeros<double>({this->_n, this->_n});
     for (auto i = 0U; i != this->_n; ++i) {
         M(i, i) = std::sqrt(this->T(i, i));
         for (auto j = i + 1; j != this->_n; ++j) {
@@ -67,3 +76,5 @@ auto ldlt_ext::sqrt() -> Mat {
     }
     return M;
 }
+
+template class ldlt_ext<Arr>;

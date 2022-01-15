@@ -1,8 +1,8 @@
 #include <stddef.h>  // for size_t
 
-#include <ellalgo/utility.hpp>          // for zeros
+// #include <ellalgo/utility.hpp>          // for zeros
 #include <gsl/span>                     // for span, span<>::element_type
-#include <lmisolver/lmi_oracle.hpp>     // for lmi_oracle::Arr, lmi_oracle::Cut
+#include <lmisolver/lmi_oracle.hpp>     // for lmi_oracle<Arr036>::Arr, lmi_oracle<Arr036>::Cut
 #include <optional>                     // for optional
 #include <tuple>                        // for tuple
 #include <type_traits>                  // for move
@@ -14,8 +14,14 @@
 #include "lmisolver/ldlt_ext.hpp"  // for ldlt_ext
 // #include <xtensor-blas/xlinalg.hpp>
 
-using Arr = xt::xarray<double, xt::layout_type::row_major>;
-using Cut = std::tuple<Arr, double>;
+/**
+ * @brief Construct a new lmi oracle object
+ *
+ * @param[in] F
+ * @param[in] B
+ */
+template <typename Arr036> lmi_oracle<Arr036>::lmi_oracle(gsl::span<const Arr036> F, Arr036 B)
+    : _F{F}, _F0{std::move(B)}, _Q{this->_F0.shape()[0]} {}
 
 /**
  * @brief
@@ -23,7 +29,8 @@ using Cut = std::tuple<Arr, double>;
  * @param[in] x
  * @return std::optional<Cut>
  */
-auto lmi_oracle::operator()(const Arr& x) -> std::optional<Cut> {
+template <typename Arr036> auto lmi_oracle<Arr036>::operator()(const Arr036& x)
+    -> std::optional<typename lmi_oracle<Arr036>::Cut> {
     const auto n = x.size();
 
     auto getA = [&, this](size_t i, size_t j) -> double {
@@ -38,9 +45,12 @@ auto lmi_oracle::operator()(const Arr& x) -> std::optional<Cut> {
         return {};
     }
     auto ep = this->_Q.witness();
-    auto g = zeros({x.size()});
+    auto g = Arr036{xt::zeros<double>({x.size()})};
     for (auto i = 0U; i != n; ++i) {
         g(i) = this->_Q.sym_quad(this->_F[i]);
     }
     return {{std::move(g), ep}};
 }
+
+using Arr = xt::xarray<double, xt::layout_type::row_major>;
+template class lmi_oracle<Arr>;

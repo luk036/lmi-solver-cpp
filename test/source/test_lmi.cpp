@@ -33,8 +33,8 @@ class my_oracle {
     using Cut = std::tuple<Arr, double>;
 
   private:
-    lmi_oracle lmi1;
-    lmi_oracle lmi2;
+    lmi_oracle<Arr> lmi1;
+    lmi_oracle<Arr> lmi2;
     const Arr c;
 
   public:

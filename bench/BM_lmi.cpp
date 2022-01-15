@@ -84,7 +84,7 @@ static void LMI_Lazy(benchmark::State& state) {
     const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_oracle>(F1, B1, F2, B2, Arr{1., -1., 1.});
+        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
         auto E = ell(10., Arr{0., 0., 0.});
         auto t = 1.e100;  // std::numeric_limits<double>::max()
         [[maybe_unused]] const auto rslt = cutting_plane_dc(P, E, t);
@@ -114,7 +114,7 @@ static void LMI_old(benchmark::State& state) {
     const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_old_oracle>(F1, B1, F2, B2, Arr{1., -1., 1.});
+        auto P = my_oracle<lmi_old_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
         auto E = ell(10., Arr{0., 0., 0.});
         auto t = 1.e100;  // std::numeric_limits<double>::max()
         [[maybe_unused]] const auto rslt = cutting_plane_dc(P, E, t);
@@ -140,7 +140,7 @@ static void LMI_No_Trick(benchmark::State& state) {
     const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_oracle>(F1, B1, F2, B2, Arr{1., -1., 1.});
+        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
         auto E = ell(10., Arr{0., 0., 0.});
         E.no_defer_trick = true;
         auto t = 1.e100;  // std::numeric_limits<double>::max()

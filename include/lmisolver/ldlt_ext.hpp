@@ -1,13 +1,8 @@
 // -*- coding: utf-8 -*-
 #pragma once
 
-#include <cstddef>                      // for size_t
-#include <ellalgo/utility.hpp>          // for zeros
-#include <utility>                      // for pair
-#include <xtensor/xarray.hpp>           // for xarray
-#include <xtensor/xcontainer.hpp>       // for xcontainer
-#include <xtensor/xlayout.hpp>          // for layout_type, layout_type::row...
-#include <xtensor/xtensor_forward.hpp>  // for xarray
+#include <cstddef>  // for size_t
+#include <utility>  // for pair
 
 /**
  * @brief LDLT factorization for LMI
@@ -18,10 +13,9 @@
  *      for all v in R^n.
  *  - O(p^2) per iteration, independent of N
  */
-class ldlt_ext {
-    using Arr = xt::xarray<double, xt::layout_type::row_major>;
-    using Vec = Arr;
-    using Mat = Arr;
+template <typename Arr036> class ldlt_ext {
+    using Vec = Arr036;
+    using Mat = Arr036;
     using Rng = std::pair<size_t, size_t>;
 
   public:
@@ -32,13 +26,16 @@ class ldlt_ext {
     const size_t _n;  //!< dimension
     Mat T;            //!< temporary storage
 
+    // static Vec zeros_vec(size_t n);
+    // static Mat zeros_mat(size_t n);
+
   public:
     /**
      * @brief Construct a new ldlt ext object
      *
      * @param[in] N dimension
      */
-    explicit ldlt_ext(size_t N) : witness_vec{zeros({N})}, _n{N}, T{zeros({N, N})} {}
+    explicit ldlt_ext(size_t N);
 
     ldlt_ext(const ldlt_ext&) = delete;
     ldlt_ext& operator=(const ldlt_ext&) = delete;
