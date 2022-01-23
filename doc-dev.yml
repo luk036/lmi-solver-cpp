@@ -1,0 +1,5 @@
+name: lmi-solver-cpp
+channels:
+  - conda-forge
+dependencies:
+  - doxygen
