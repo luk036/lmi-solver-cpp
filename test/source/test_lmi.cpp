@@ -72,7 +72,7 @@ class my_oracle {
             return {{this->c, f1}, false};
         }
         t = f0;
-        return {{this->c, 0.}, true};
+        return {{this->c, 0.0}, true};
     }
 };
 
@@ -80,18 +80,19 @@ TEST_CASE("LMI test (stable)") {
     using Arr = xt::xarray<double, xt::layout_type::row_major>;
     using M_t = std::vector<Arr>;
 
-    auto c = Arr{1., -1., 1.};
-    auto F1 = M_t{{{-7., -11.}, {-11., 3.}}, {{7., -18.}, {-18., 8.}}, {{-2., -8.}, {-8., 1.}}};
-    auto B1 = Arr{{33., -9.}, {-9., 26.}};
-    auto F2 = M_t{{{-21., -11., 0.}, {-11., 10., 8.}, {0., 8., 5.}},
-                  {{0., 10., 16.}, {10., -10., -10.}, {16., -10., 3.}},
-                  {{-5., 2., -17.}, {2., -6., 8.}, {-17., 8., 6.}}};
-    auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
+    auto c = Arr{1.0, -1.0, 1.0};
+    auto F1 = M_t{
+        {{-7.0, -11.0}, {-11.0, 3.0}}, {{7.0, -18.0}, {-18.0, 8.0}}, {{-2.0, -8.0}, {-8.0, 1.0}}};
+    auto B1 = Arr{{33.0, -9.0}, {-9.0, 26.0}};
+    auto F2 = M_t{{{-21.0, -11.0, 0.0}, {-11.0, 10.0, 8.0}, {0.0, 8.0, 5.0}},
+                  {{0.0, 10.0, 16.0}, {10.0, -10.0, -10.0}, {16.0, -10.0, 3.0}},
+                  {{-5.0, 2.0, -17.0}, {2.0, -6.0, 8.0}, {-17.0, 8.0, 6.0}}};
+    auto B2 = Arr{{14.0, 9.0, 40.0}, {9.0, 91.0, 10.0}, {40.0, 10.0, 15.0}};
 
     auto P = my_oracle(F1, B1, F2, B2, std::move(c));
-    auto E = ell(10., Arr{0., 0., 0.});
+    auto E = ell(10.0, Arr{0.0, 0.0, 0.0});
 
-    auto t = 1.e100;  // std::numeric_limits<double>::max()
+    auto t = 1e100;  // std::numeric_limits<double>::max()
     const auto [x, ell_info] = cutting_plane_dc(P, E, t);
     // fmt::print("{:f} {} {} \n", t, ell_info.num_iters, ell_info.feasible);
     // std::cout << "LMI xbest: " << xb << "\n";
@@ -114,18 +115,19 @@ TEST_CASE("LMI test ") {
     using Arr = xt::xarray<double, xt::layout_type::row_major>;
     using M_t = std::vector<Arr>;
 
-    auto c = Arr{1., -1., 1.};
-    auto F1 = M_t{{{-7., -11.}, {-11., 3.}}, {{7., -18.}, {-18., 8.}}, {{-2., -8.}, {-8., 1.}}};
-    auto B1 = Arr{{33., -9.}, {-9., 26.}};
-    auto F2 = M_t{{{-21., -11., 0.}, {-11., 10., 8.}, {0., 8., 5.}},
-                  {{0., 10., 16.}, {10., -10., -10.}, {16., -10., 3.}},
-                  {{-5., 2., -17.}, {2., -6., 8.}, {-17., 8., 6.}}};
-    auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
+    auto c = Arr{1.0, -1.0, 1.0};
+    auto F1 = M_t{
+        {{-7.0, -11.0}, {-11.0, 3.0}}, {{7.0, -18.0}, {-18.0, 8.0}}, {{-2.0, -8.0}, {-8.0, 1.0}}};
+    auto B1 = Arr{{33.0, -9.0}, {-9.0, 26.0}};
+    auto F2 = M_t{{{-21.0, -11.0, 0.0}, {-11.0, 10.0, 8.0}, {0.0, 8.0, 5.0}},
+                  {{0.0, 10.0, 16.0}, {10.0, -10.0, -10.0}, {16.0, -10.0, 3.0}},
+                  {{-5.0, 2.0, -17.0}, {2.0, -6.0, 8.0}, {-17.0, 8.0, 6.0}}};
+    auto B2 = Arr{{14.0, 9.0, 40.0}, {9.0, 91.0, 10.0}, {40.0, 10.0, 15.0}};
 
     auto P = my_oracle(F1, B1, F2, B2, std::move(c));
-    auto E = ell_stable(10., Arr{0., 0., 0.});
+    auto E = ell_stable(10.0, Arr{0.0, 0.0, 0.0});
 
-    auto t = 1.e100;  // std::numeric_limits<double>::max()
+    auto t = 1e100;  // std::numeric_limits<double>::max()
     const auto [x, ell_info] = cutting_plane_dc(P, E, t);
 
     CHECK(ell_info.feasible);

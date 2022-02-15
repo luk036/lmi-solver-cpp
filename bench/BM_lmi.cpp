@@ -62,7 +62,7 @@ template <typename Oracle> class my_oracle {
             return {*cut2, false};
         }
         t = f0;
-        return {{this->c, 0.}, true};
+        return {{this->c, 0.0}, true};
     }
 };
 
@@ -74,19 +74,19 @@ template <typename Oracle> class my_oracle {
 static void LMI_Lazy(benchmark::State& state) {
     using Arr = xt::xarray<double, xt::layout_type::row_major>;
 
-    // auto c = Arr {1., -1., 1.};
+    // auto c = Arr {1.0, -1.0, 1.0};
     const auto F1 = std::vector<Arr>{
-        {{-7., -11.}, {-11., 3.}}, {{7., -18.}, {-18., 8.}}, {{-2., -8.}, {-8., 1.}}};
-    const auto B1 = Arr{{33., -9.}, {-9., 26.}};
-    const auto F2 = std::vector<Arr>{{{-21., -11., 0.}, {-11., 10., 8.}, {0., 8., 5.}},
-                                     {{0., 10., 16.}, {10., -10., -10.}, {16., -10., 3.}},
-                                     {{-5., 2., -17.}, {2., -6., 8.}, {-17., 8., 6.}}};
-    const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
+        {{-7.0, -11.0}, {-11.0, 3.0}}, {{7.0, -18.0}, {-18.0, 8.0}}, {{-2.0, -8.0}, {-8.0, 1.0}}};
+    const auto B1 = Arr{{33.0, -9.0}, {-9.0, 26.0}};
+    const auto F2 = std::vector<Arr>{{{-21.0, -11.0, 0.0}, {-11.0, 10.0, 8.0}, {0.0, 8.0, 5.0}},
+                                     {{0.0, 10.0, 16.0}, {10.0, -10.0, -10.0}, {16.0, -10.0, 3.0}},
+                                     {{-5.0, 2.0, -17.0}, {2.0, -6.0, 8.0}, {-17.0, 8.0, 6.0}}};
+    const auto B2 = Arr{{14.0, 9.0, 40.0}, {9.0, 91.0, 10.0}, {40.0, 10.0, 15.0}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
-        auto E = ell(10., Arr{0., 0., 0.});
-        auto t = 1.e100;  // std::numeric_limits<double>::max()
+        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1.0, -1.0, 1.0});
+        auto E = ell(10.0, Arr{0.0, 0.0, 0.0});
+        auto t = 1e100;  // std::numeric_limits<double>::max()
         [[maybe_unused]] const auto rslt = cutting_plane_dc(P, E, t);
     }
 }
@@ -104,19 +104,19 @@ BENCHMARK(LMI_Lazy);
 static void LMI_old(benchmark::State& state) {
     using Arr = xt::xarray<double, xt::layout_type::row_major>;
 
-    // auto c = Arr {1., -1., 1.};
+    // auto c = Arr {1.0, -1.0, 1.0};
     const auto F1 = std::vector<Arr>{
-        {{-7., -11.}, {-11., 3.}}, {{7., -18.}, {-18., 8.}}, {{-2., -8.}, {-8., 1.}}};
-    const auto B1 = Arr{{33., -9.}, {-9., 26.}};
-    const auto F2 = std::vector<Arr>{{{-21., -11., 0.}, {-11., 10., 8.}, {0., 8., 5.}},
-                                     {{0., 10., 16.}, {10., -10., -10.}, {16., -10., 3.}},
-                                     {{-5., 2., -17.}, {2., -6., 8.}, {-17., 8., 6.}}};
-    const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
+        {{-7.0, -11.0}, {-11.0, 3.0}}, {{7.0, -18.0}, {-18.0, 8.0}}, {{-2.0, -8.0}, {-8.0, 1.0}}};
+    const auto B1 = Arr{{33.0, -9.0}, {-9.0, 26.0}};
+    const auto F2 = std::vector<Arr>{{{-21.0, -11.0, 0.0}, {-11.0, 10.0, 8.0}, {0.0, 8.0, 5.0}},
+                                     {{0.0, 10.0, 16.0}, {10.0, -10.0, -10.0}, {16.0, -10.0, 3.0}},
+                                     {{-5.0, 2.0, -17.0}, {2.0, -6.0, 8.0}, {-17.0, 8.0, 6.0}}};
+    const auto B2 = Arr{{14.0, 9.0, 40.0}, {9.0, 91.0, 10.0}, {40.0, 10.0, 15.0}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_old_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
-        auto E = ell(10., Arr{0., 0., 0.});
-        auto t = 1.e100;  // std::numeric_limits<double>::max()
+        auto P = my_oracle<lmi_old_oracle<Arr>>(F1, B1, F2, B2, Arr{1.0, -1.0, 1.0});
+        auto E = ell(10.0, Arr{0.0, 0.0, 0.0});
+        auto t = 1e100;  // std::numeric_limits<double>::max()
         [[maybe_unused]] const auto rslt = cutting_plane_dc(P, E, t);
     }
 }
@@ -130,20 +130,20 @@ BENCHMARK(LMI_old);
 static void LMI_No_Trick(benchmark::State& state) {
     using Arr = xt::xarray<double, xt::layout_type::row_major>;
 
-    // const auto c = Arr {1., -1., 1.};
+    // const auto c = Arr {1.0, -1.0, 1.0};
     const auto F1 = std::vector<Arr>{
-        {{-7., -11.}, {-11., 3.}}, {{7., -18.}, {-18., 8.}}, {{-2., -8.}, {-8., 1.}}};
-    const auto B1 = Arr{{33., -9.}, {-9., 26.}};
-    const auto F2 = std::vector<Arr>{{{-21., -11., 0.}, {-11., 10., 8.}, {0., 8., 5.}},
-                                     {{0., 10., 16.}, {10., -10., -10.}, {16., -10., 3.}},
-                                     {{-5., 2., -17.}, {2., -6., 8.}, {-17., 8., 6.}}};
-    const auto B2 = Arr{{14., 9., 40.}, {9., 91., 10.}, {40., 10., 15.}};
+        {{-7.0, -11.0}, {-11.0, 3.0}}, {{7.0, -18.0}, {-18.0, 8.0}}, {{-2.0, -8.0}, {-8.0, 1.0}}};
+    const auto B1 = Arr{{33.0, -9.0}, {-9.0, 26.0}};
+    const auto F2 = std::vector<Arr>{{{-21.0, -11.0, 0.0}, {-11.0, 10.0, 8.0}, {0.0, 8.0, 5.0}},
+                                     {{0.0, 10.0, 16.0}, {10.0, -10.0, -10.0}, {16.0, -10.0, 3.0}},
+                                     {{-5.0, 2.0, -17.0}, {2.0, -6.0, 8.0}, {-17.0, 8.0, 6.0}}};
+    const auto B2 = Arr{{14.0, 9.0, 40.0}, {9.0, 91.0, 10.0}, {40.0, 10.0, 15.0}};
 
     while (state.KeepRunning()) {
-        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1., -1., 1.});
-        auto E = ell(10., Arr{0., 0., 0.});
+        auto P = my_oracle<lmi_oracle<Arr>>(F1, B1, F2, B2, Arr{1.0, -1.0, 1.0});
+        auto E = ell(10.0, Arr{0.0, 0.0, 0.0});
         E.no_defer_trick = true;
-        auto t = 1.e100;  // std::numeric_limits<double>::max()
+        auto t = 1e100;  // std::numeric_limits<double>::max()
         [[maybe_unused]] const auto rslt = cutting_plane_dc(P, E, t);
     }
 }
