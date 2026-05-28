@@ -7,8 +7,9 @@ CPMAddPackage(
 
 CPMAddPackage(
   NAME Eigen
+  GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
   GIT_TAG 5.0.1
-  GITHUB_REPOSITORY eigenteam/eigen-git-mirror
+  DOWNLOAD_ONLY YES
 )
 
 if(Eigen_ADDED)
@@ -16,4 +17,12 @@ if(Eigen_ADDED)
   include_directories(${Eigen_SOURCE_DIR})
 endif()
 
-set(SPECIFIC_LIBS fmt::fmt)
+# EllAlgo needed for integration tests (cutting_plane_optim, Ell, EllStable)
+CPMAddPackage(
+  NAME EllAlgo
+  GIT_TAG 1.6.4
+  GITHUB_REPOSITORY luk036/ellalgo-cpp
+  OPTIONS "INSTALL_ONLY YES"
+)
+
+set(SPECIFIC_LIBS fmt::fmt EllAlgo::EllAlgo)
