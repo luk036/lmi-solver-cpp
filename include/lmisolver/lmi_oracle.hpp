@@ -5,13 +5,8 @@
 #include <memory>
 #include <vector>
 
-/// Oracle for Linear Matrix Inequality (LMI) feasibility.
-///
-///   find  x
-///   s.t.  (B - F*x) >= 0
-///
-/// @tparam Vec  Eigen vector type (e.g. Eigen::VectorXd)
-/// @tparam Mat  Eigen matrix type (e.g. Eigen::MatrixXd)
+namespace lmi {
+
 template <typename Vec, typename Mat = Eigen::MatrixXd> class LmiOracle {
     using Cut = std::pair<Vec, double>;
 
@@ -26,24 +21,15 @@ template <typename Vec, typename Mat = Eigen::MatrixXd> class LmiOracle {
 
     auto assess_feas(const Vec& x) -> Cut* {
         const auto n = x.size();
-
         auto getA = [&n, &x, this](std::size_t i, std::size_t j) -> double {
             auto a = this->m_F0(i, j);
-            for (auto k = 0U; k != n; ++k) {
-                a -= this->m_F[k](i, j) * x[k];
-            }
+            for (auto k = 0U; k != n; ++k) a -= this->m_F[k](i, j) * x[k];
             return a;
         };
-
-        if (this->_mgr.factor(getA)) {
-            return nullptr;
-        }
-
+        if (this->_mgr.factor(getA)) return nullptr;
         auto ep = this->_mgr.witness();
         Vec g{x};
-        for (auto i = 0U; i != n; ++i) {
-            g[i] = this->_mgr.sym_quad(this->m_F[i]);
-        }
+        for (auto i = 0U; i != n; ++i) g[i] = this->_mgr.sym_quad(this->m_F[i]);
         this->cut->first = std::move(g);
         this->cut->second = std::move(ep);
         return this->cut.get();
@@ -51,3 +37,5 @@ template <typename Vec, typename Mat = Eigen::MatrixXd> class LmiOracle {
 
     auto operator()(const Vec& x) -> Cut* { return assess_feas(x); }
 };
+
+} // namespace lmi

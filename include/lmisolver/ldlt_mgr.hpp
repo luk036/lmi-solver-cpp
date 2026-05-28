@@ -5,11 +5,8 @@
 #include <cstddef>
 #include <utility>
 
-/// LDLT factorization using Eigen storage.
-///
-/// LDLTMgr performs LDL^T factorization for a symmetric matrix.
-/// The matrix is accessed lazily via a callable, avoiding explicit assembly.
-/// Uses Eigen::MatrixXd for internal storage.
+namespace lmi {
+
 class LDLTMgr {
   public:
     using Vec = Eigen::VectorXd;
@@ -25,7 +22,6 @@ class LDLTMgr {
 
   public:
     explicit LDLTMgr(std::size_t N) : witness_vec(N), _n{N}, T(N, N) {}
-
     LDLTMgr(const LDLTMgr&) = delete;
     LDLTMgr& operator=(const LDLTMgr&) = delete;
     LDLTMgr(LDLTMgr&&) = default;
@@ -40,7 +36,6 @@ class LDLTMgr {
         this->pos = {0U, 0U};
         auto const& start = this->pos.first;
         auto& stop = this->pos.second;
-
         for (auto i = 0U; i != this->_n; ++i) {
             auto d = get_matrix_elem(i, start);
             for (auto j = start; j != i; ++j) {
@@ -48,18 +43,11 @@ class LDLTMgr {
                 this->T(i, j) = d / this->T(j, j);
                 auto s = j + 1;
                 d = get_matrix_elem(i, s);
-                for (auto k = start; k != s; ++k) {
-                    d -= this->T(i, k) * this->T(k, s);
-                }
+                for (auto k = start; k != s; ++k) d -= this->T(i, k) * this->T(k, s);
             }
             this->T(i, i) = d;
-
-            if (d <= 0.0) {
-                stop = i + 1;
-                break;
-            }
+            if (d <= 0.0) { stop = i + 1; break; }
         }
-
         return this->is_spd();
     }
 
@@ -67,7 +55,6 @@ class LDLTMgr {
         this->pos = {0U, 0U};
         auto& start = this->pos.first;
         auto& stop = this->pos.second;
-
         for (auto i = 0U; i != this->_n; ++i) {
             auto d = get_matrix_elem(i, start);
             for (auto j = start; j != i; ++j) {
@@ -75,19 +62,11 @@ class LDLTMgr {
                 this->T(i, j) = d / this->T(j, j);
                 auto s = j + 1;
                 d = get_matrix_elem(i, s);
-                for (auto k = start; k != s; ++k) {
-                    d -= this->T(i, k) * this->T(k, s);
-                }
+                for (auto k = start; k != s; ++k) d -= this->T(i, k) * this->T(k, s);
             }
             this->T(i, i) = d;
-
-            if (d < 0.0) {
-                stop = i + 1;
-                break;
-            }
-            if (d == 0.0) {
-                start = i + 1;
-            }
+            if (d < 0.0) { stop = i + 1; break; }
+            if (d == 0.0) start = i + 1;
         }
         return this->is_spd();
     }
@@ -97,9 +76,7 @@ class LDLTMgr {
     auto witness() -> double;
 
     template <typename Arr036> auto set_witness_vec(Arr036& v) const -> void {
-        for (auto i = 0U; i != this->_n; ++i) {
-            v[i] = this->witness_vec[i];
-        }
+        for (auto i = 0U; i != this->_n; ++i) v[i] = this->witness_vec[i];
     }
 
     template <typename Mat> auto sym_quad(const Mat& A) const -> double {
@@ -109,9 +86,7 @@ class LDLTMgr {
         const auto& stop = this->pos.second;
         for (auto i = start; i != stop; ++i) {
             auto s = 0.0;
-            for (auto j = i + 1; j != stop; ++j) {
-                s += A(i, j) * v[j];
-            }
+            for (auto j = i + 1; j != stop; ++j) s += A(i, j) * v[j];
             res += v[i] * (A(i, i) * v[i] + 2.0 * s);
         }
         return res;
@@ -128,3 +103,5 @@ class LDLTMgr {
         }
     }
 };
+
+} // namespace lmi

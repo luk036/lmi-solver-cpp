@@ -6,8 +6,8 @@
 
 #include <Eigen/Dense>
 
-TEST_CASE("LDLTMgr: identity matrix is SPD") {
-    auto mgr = LDLTMgr(3);
+TEST_CASE("lmi::LDLTMgr: identity matrix is SPD") {
+    auto mgr = lmi::LDLTMgr(3);
 
     auto I = Eigen::MatrixXd::Identity(3, 3);
     auto ok = mgr.factorize(I);
@@ -16,8 +16,8 @@ TEST_CASE("LDLTMgr: identity matrix is SPD") {
     CHECK(mgr.is_spd());
 }
 
-TEST_CASE("LDLTMgr: negative definite fails") {
-    auto mgr = LDLTMgr(2);
+TEST_CASE("lmi::LDLTMgr: negative definite fails") {
+    auto mgr = lmi::LDLTMgr(2);
 
     auto A = Eigen::MatrixXd(2, 2);
     A(0, 0) = -1.0;
@@ -31,8 +31,8 @@ TEST_CASE("LDLTMgr: negative definite fails") {
     CHECK(mgr.witness() > 0.0);
 }
 
-TEST_CASE("LDLTMgr: witness and sym_quad") {
-    auto mgr = LDLTMgr(2);
+TEST_CASE("lmi::LDLTMgr: witness and sym_quad") {
+    auto mgr = lmi::LDLTMgr(2);
 
     // A = [[2, 0], [0, -1]] is not SPD
     auto A = Eigen::MatrixXd(2, 2);
@@ -57,7 +57,7 @@ TEST_CASE("LDLTMgr: witness and sym_quad") {
     CHECK(sq >= 0.0);
 }
 
-TEST_CASE("Lmi0Oracle: infeasible point returns cut") {
+TEST_CASE("lmi::Lmi0Oracle: infeasible point returns cut") {
     using Vec = Eigen::VectorXd;
     using Mat = Eigen::MatrixXd;
 
@@ -67,7 +67,7 @@ TEST_CASE("Lmi0Oracle: infeasible point returns cut") {
     auto F1 = Mat::Identity(2, 2);
     auto F2 = Mat::Identity(2, 2);
     auto F = std::vector<Mat>{F1, F2};
-    auto oracle = Lmi0Oracle<Vec, Mat>(2, F);
+    auto oracle = lmi::Lmi0Oracle<Vec, Mat>(2, F);
 
     // At x=0, A=0 (zero matrix cannot be factorized as SPD)
     // so factor returns false, assess_feas proceeds to compute a cut
@@ -77,7 +77,7 @@ TEST_CASE("Lmi0Oracle: infeasible point returns cut") {
     CHECK(cut0 != nullptr);
 }
 
-TEST_CASE("LmiOracle: two-constraint LMI problem") {
+TEST_CASE("lmi::LmiOracle: two-constraint LMI problem") {
     using Vec = Eigen::VectorXd;
     using Mat = Eigen::MatrixXd;
 
@@ -108,8 +108,8 @@ TEST_CASE("LmiOracle: two-constraint LMI problem") {
     auto B2 = Mat(3, 3);
     B2 << 14.0, 9.0, 40.0, 9.0, 91.0, 10.0, 40.0, 10.0, 15.0;
 
-    auto lmi1 = LmiOracle<Vec, Mat>(2, F1, B1);
-    auto lmi2 = LmiOracle<Vec, Mat>(3, F2, B2);
+    auto lmi1 = lmi::LmiOracle<Vec, Mat>(2, F1, B1);
+    auto lmi2 = lmi::LmiOracle<Vec, Mat>(3, F2, B2);
 
     // Test an infeasible point
     auto x = Vec(3);
