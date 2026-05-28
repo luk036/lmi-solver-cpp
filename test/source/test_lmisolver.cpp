@@ -1,10 +1,9 @@
 #define DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS
 #include <doctest/doctest.h>
 
-#include <lmisolver/lmi_oracle.hpp>
-#include <lmisolver/lmi0_oracle.hpp>
-
 #include <Eigen/Dense>
+#include <lmisolver/lmi0_oracle.hpp>
+#include <lmisolver/lmi_oracle.hpp>
 
 TEST_CASE("lmi::LDLTMgr: identity matrix is SPD") {
     auto mgr = lmi::LDLTMgr(3);
@@ -124,5 +123,3 @@ TEST_CASE("lmi::LmiOracle: two-constraint LMI problem") {
     auto cut2 = lmi2(x0);
     CHECK(cut2 != nullptr);
 }
-
-
