@@ -1,0 +1,42 @@
+{
+    doctest = {
+        version = "2.5.2",
+        __requireconfs = {
+            alias = "doctest"
+        },
+        license = "MIT",
+        envs = {
+            PATH = {
+                [[C:\Users\luk03\AppData\Local\.xmake\packages\n\ninja\v1.13.1\fd5a0995dca64146a4f4c4dbff879aad\bin]],
+                [[C:\Users\luk03\AppData\Local\.xmake\packages\c\cmake\4.2.3\674adf9609f646bc9f678b5e946b080a\bin]]
+            }
+        },
+        __requirestr = "doctest",
+        sysincludedirs = {
+            [[C:\Users\luk03\AppData\Local\.xmake\packages\d\doctest\2.5.2\188f3429bb1e4181b9b1943a88527969\include]],
+            [[C:\Users\luk03\AppData\Local\.xmake\packages\d\doctest\2.5.2\188f3429bb1e4181b9b1943a88527969\include\doctest]]
+        },
+        installdir = [[C:\Users\luk03\AppData\Local\.xmake\packages\d\doctest\2.5.2\188f3429bb1e4181b9b1943a88527969]],
+        __enabled = true
+    },
+    eigen = {
+        version = "5.0.1",
+        __requireconfs = {
+            alias = "eigen"
+        },
+        license = "MPL-2.0",
+        __enabled = true,
+        installdir = [[C:\Users\luk03\AppData\Local\.xmake\packages\e\eigen\5.0.1\60cb40bd086c4c96b9551ce6ccff0e36]],
+        sysincludedirs = {
+            [[C:\Users\luk03\AppData\Local\.xmake\packages\e\eigen\5.0.1\60cb40bd086c4c96b9551ce6ccff0e36\include]],
+            [[C:\Users\luk03\AppData\Local\.xmake\packages\e\eigen\5.0.1\60cb40bd086c4c96b9551ce6ccff0e36\include\eigen3]]
+        },
+        __requirestr = "eigen",
+        envs = {
+            PATH = {
+                [[C:\Users\luk03\AppData\Local\.xmake\packages\n\ninja\v1.13.1\fd5a0995dca64146a4f4c4dbff879aad\bin]],
+                [[C:\Users\luk03\AppData\Local\.xmake\packages\c\cmake\4.2.3\674adf9609f646bc9f678b5e946b080a\bin]]
+            }
+        }
+    }
+}

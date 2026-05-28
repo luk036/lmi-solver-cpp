@@ -1,0 +1,224 @@
+{
+    yasm_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    rust_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    tool_platform_windows_x64_ld = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "link"
+    },
+    tool_target_LmiSolver_windows_x64_cxx = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    cuda_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    tool_target_test_lmi_solver_windows_x64_cc = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    nasm_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    tool_platform_windows_x64_ar = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "link"
+    },
+    fpc_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    tool_target_test_lmi_solver_windows_x64_cxx = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    nim_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = false,
+        plat = "windows"
+    },
+    zig_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = false,
+        plat = "windows"
+    },
+    tool_target_test_lmi_solver_windows_x64_ld = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "link"
+    },
+    clang_arch_x64_plat_windows = {
+        __global = true,
+        arch = "x64",
+        plat = "windows"
+    },
+    go_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    tool_platform_windows_x64_cc = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    tool_platform_windows_x64_cxx = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    swift_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    gfortran_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = true,
+        plat = "windows"
+    },
+    dotnet_arch_x64_plat_windows = {
+        arch = "x64",
+        __global = true,
+        __checked = false,
+        plat = "windows"
+    },
+    tool_target_LmiSolver_windows_x64_cc = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\cl.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "cl"
+    },
+    tool_platform_windows_x64_sh = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "link"
+    },
+    tool_target_LmiSolver_windows_x64_ar = {
+        program = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64\link.exe]],
+        toolchain_info = {
+            arch = "x64",
+            cachekey = "msvc_arch_x64_plat_windows",
+            plat = "windows",
+            name = "msvc"
+        },
+        toolname = "link"
+    },
+    msvc_arch_x64_plat_windows = {
+        vcarchs = {
+            "arm64",
+            "x64",
+            "x86"
+        },
+        __checked = "2022",
+        vcvars = {
+            VSInstallDir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\]],
+            UniversalCRTSdkDir = [[C:\Program Files (x86)\Windows Kits\10\]],
+            VCToolsInstallDir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\]],
+            VSCMD_ARG_TGT_ARCH = "x64",
+            WindowsSdkVerBinPath = [[C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\]],
+            VCInstallDir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\]],
+            DevEnvdir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\]],
+            LIBPATH = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\lib\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\lib\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\lib\x86\store\references;C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.22621.0;C:\Program Files (x86)\Windows Kits\10\References\10.0.22621.0;C:\Windows\Microsoft.NET\Framework64\v4.0.30319]],
+            WindowsLibPath = [[C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.22621.0;C:\Program Files (x86)\Windows Kits\10\References\10.0.22621.0]],
+            VCToolsRedistDir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Redist\MSVC\14.38.33135\]],
+            LIB = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\lib\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\lib\x64;C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64;C:\Program Files (x86)\Windows Kits\10\\lib\10.0.22621.0\\um\x64]],
+            INCLUDE = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\ATLMFC\include;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\VS\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.22621.0\ucrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\um;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\shared;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\winrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22621.0\\cppwinrt]],
+            WindowsSdkDir = [[C:\Program Files (x86)\Windows Kits\10\]],
+            VCIDEInstallDir = [[C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\]],
+            VSCMD_VER = "17.8.6",
+            UCRTVersion = "10.0.22621.0",
+            PATH = [[C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\bin\HostX64\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\VCPackages;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer;C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\bin\Roslyn;C:\Program Files\Microsoft Visual Studio\2022\Community\Team Tools\Performance Tools\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\Team Tools\Performance Tools;C:\Program Files\Microsoft Visual Studio\2022\Community\Team Tools\DiagnosticsHub\Collector;C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\\x64;C:\Program Files (x86)\Windows Kits\10\bin\\x64;C:\Program Files\Microsoft Visual Studio\2022\Community\\MSBuild\Current\Bin\amd64;C:\Windows\Microsoft.NET\Framework64\v4.0.30319;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\;D:\scoop\apps\xmake\current;D:\scoop\apps\vscode\current\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Docker\Docker\resources\bin;D:\scoop\apps\iverilog\current\bin;D:\scoop\apps\gcc\current\bin;D:\scoop\apps\perl\current\perl\site\bin;D:\scoop\apps\perl\current\perl\bin;D:\scoop\apps\qemu\current;D:\scoop\apps\latex\current\texmfs\install\miktex\bin\x64;D:\scoop\apps\python\current\Scripts;D:\scoop\apps\python\current;D:\scoop\apps\nodejs\current\bin;D:\scoop\apps\nodejs\current;D:\scoop\shims;d:/scoop\shims;C:\Users\luk03\AppData\Local\Microsoft\WindowsApps;C:\Users\luk03\.cargo\bin;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\Ninja;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\VC\Linux\bin\ConnectionManagerExe;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg]],
+            WindowsSDKVersion = "10.0.22621.0",
+            WindowsSdkBinPath = [[C:\Program Files (x86)\Windows Kits\10\bin\]],
+            VisualStudioVersion = "17.0",
+            ExtensionSdkDir = [[C:\Program Files (x86)\Microsoft SDKs\Windows Kits\10\ExtensionSDKs]],
+            VSCMD_ARG_HOST_ARCH = "x64",
+            VS170COMNTOOLS = [[C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\]],
+            VCToolsVersion = "14.38.33130",
+            VSCMD_ARG_app_plat = "Desktop"
+        },
+        plat = "windows",
+        __global = true,
+        vs_toolset = "14.38.33130",
+        arch = "x64",
+        vs_sdkver = "10.0.22621.0",
+        vs = "2022"
+    }
+}
