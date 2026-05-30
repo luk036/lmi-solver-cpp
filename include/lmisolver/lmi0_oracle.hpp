@@ -6,7 +6,9 @@
 
 namespace lmi {
 
-    template <typename Vec, typename Mat = Eigen::MatrixXd> class Lmi0Oracle {
+    template <typename Vec, typename Mat = Eigen::MatrixXd>
+        requires detail::VecConcept<Vec> && detail::MatConcept<Mat>
+    class Lmi0Oracle {
         using Cut = std::pair<Vec, double>;
 
       public:

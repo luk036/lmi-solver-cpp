@@ -9,7 +9,7 @@ target_link_libraries(
   ${PROJECT_NAME}Tests doctest::doctest ${PROJECT_NAME}::${PROJECT_NAME} EllAlgo::EllAlgo
   ${SPECIFIC_LIBS}
 )
-set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 17)
+set_target_properties(${PROJECT_NAME}Tests PROPERTIES CXX_STANDARD 20)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
   target_compile_options(

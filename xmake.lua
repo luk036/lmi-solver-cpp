@@ -1,4 +1,4 @@
-set_languages("c++17")
+set_languages("c++20")
 
 add_rules("mode.debug", "mode.release", "mode.coverage")
 
