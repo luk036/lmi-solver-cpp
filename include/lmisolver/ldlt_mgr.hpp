@@ -5,21 +5,22 @@
 #include <cstddef>
 #include <utility>
 
-namespace lmi { namespace detail {
-    template <typename V>
-    concept VecConcept = requires(V& v, const V& cv, std::size_t i) {
-        { v.size() } -> std::convertible_to<std::size_t>;
-        { cv[i] };
-        { v[i] = double{} };
-        V{cv};
-        V{std::move(v)};
-    };
+namespace lmi {
+    namespace detail {
+        template <typename V>
+        concept VecConcept = requires(V& v, const V& cv, std::size_t i) {
+            { v.size() } -> std::convertible_to<std::size_t>;
+            { cv[i] };
+            { v[i] = double{} };
+            V{cv};
+            V{std::move(v)};
+        };
 
-    template <typename M>
-    concept MatConcept = requires(M& m, std::size_t i, std::size_t j) {
-        { m(i, j) } -> std::convertible_to<double>;
-    };
-}  // namespace detail
+        template <typename M>
+        concept MatConcept = requires(M& m, std::size_t i, std::size_t j) {
+            { m(i, j) } -> std::convertible_to<double>;
+        };
+    }  // namespace detail
 
     class LDLTMgr {
       public:
