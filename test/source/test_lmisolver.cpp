@@ -1,3 +1,4 @@
+#define DOCTEST_CONFIG_USE_STD_HEADERS
 #define DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS
 #include <doctest/doctest.h>
 
