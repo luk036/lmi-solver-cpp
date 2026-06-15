@@ -30,7 +30,6 @@ elseif(MSVC)
            /wd5285
            /wd4146
            /wd4127
-           /wd4996
            /wd4267
            /wd4244
   )
