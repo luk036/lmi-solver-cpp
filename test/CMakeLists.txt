@@ -25,10 +25,9 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 elseif(MSVC)
   target_compile_options(
     ${PROJECT_NAME}
-    PUBLIC /W4
+    PUBLIC /utf-8 /W4
            /WX
            /wd5285
-           /wd4819
            /wd4146
            /wd4127
            /wd4996
