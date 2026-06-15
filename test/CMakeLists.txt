@@ -1,6 +1,6 @@
 option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 
-CPMAddPackage("gh:doctest/doctest#v2.4.11")
+CPMAddPackage("gh:doctest/doctest#v2.5.2")
 CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
@@ -23,7 +23,7 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
            -Wno-deprecated-literal-operator
   )
 elseif(MSVC)
-  target_compile_options(${PROJECT_NAME} PUBLIC /utf-8 /W4 /WX /wd5285)
+  target_compile_options(${PROJECT_NAME} PUBLIC /utf-8 /W4 /WX)
   # target_compile_definitions(${PROJECT_NAME}Tests PUBLIC DOCTEST_CONFIG_USE_STD_HEADERS)
 endif()
 
