@@ -17,7 +17,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     PUBLIC -Wall
            -Wextra
            -Wconversion
-           -Wno-sign-conversion
   )
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} PUBLIC /utf-8 /W4 /WX)

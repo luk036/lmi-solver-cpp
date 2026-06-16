@@ -32,12 +32,12 @@ add_library(${PROJECT_NAME} ${headers} ${sources})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
 
 target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
-target_compile_options(
-  ${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,Clang>:-Wno-sign-conversion>"
-)
-target_compile_options(
-  ${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,GNU>:-Wno-sign-conversion>"
-)
+# target_compile_options(
+#   ${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,Clang>:-Wno-sign-conversion>"
+# )
+# target_compile_options(
+#   ${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,GNU>:-Wno-sign-conversion>"
+# )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ${SPECIFIC_LIBS})
 
