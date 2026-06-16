@@ -17,8 +17,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     PUBLIC -Wall
            -Wextra
            -Wconversion
-           -Wno-parentheses
-           -Wno-unused-but-set-parameter
            -Wno-sign-conversion
   )
 elseif(MSVC)
