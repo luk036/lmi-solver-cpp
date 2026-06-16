@@ -20,7 +20,6 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR CMAKE_CXX_COMPILER_ID MATCHES "GNU")
            -Wno-parentheses
            -Wno-unused-but-set-parameter
            -Wno-sign-conversion
-           -Wno-deprecated-literal-operator
   )
 elseif(MSVC)
   target_compile_options(${PROJECT_NAME} PUBLIC /utf-8 /W4 /WX)
