@@ -6,3 +6,11 @@ build/
 *.pdb
 *.ilk
 *.exp
+
+# Generated artifacts
+*.log
+*.exe
+a.out
+compile_commands.json
+.pytest_cache/
+.ruff_cache/
