@@ -46,6 +46,10 @@ namespace lmi {
          * Constructs A = sum(x_k * F_k) and checks if it is SPD.
          * If not, computes a witness direction (cut) for the cutting-plane method.
          *
+         * @f[
+         *     A(x) = \sum_{k=1}^{n} x_k F_k \succ 0
+         * @f]
+         *
          * @param[in] x Decision variable vector.
          * @return Pointer to a (gradient, ep) cut, or nullptr if feasible.
          */

@@ -64,6 +64,11 @@ namespace lmi {
 
         /**
          * @brief Factorize a matrix A via LDL^T decomposition.
+         *
+         * @f[
+         *     A = LDL^T
+         * @f]
+         *
          * @tparam Mat Matrix type with operator()(i, j) returning double.
          * @param[in] A The matrix to factorize.
          * @return true if A is symmetric positive-definite, false otherwise.
@@ -77,6 +82,10 @@ namespace lmi {
          *
          * Factorizes the matrix row by row. Stops early when a non-positive pivot
          * is encountered and records the position in `pos`.
+         *
+         * @f[
+         *     A = LDL^T
+         * @f]
          *
          * @tparam Fn Callable type: Fn(std::size_t i, std::size_t j) -> double.
          * @param[in] get_matrix_elem Callback returning matrix element A(i, j).
@@ -109,6 +118,10 @@ namespace lmi {
          *
          * Identical to factor() but treats zero pivots as valid (semi-definite case)
          * rather than stopping. The zero-pivot position advances the start index.
+         *
+         * @f[
+         *     A = LDL^T
+         * @f]
          *
          * @tparam Fn Callable type: Fn(std::size_t i, std::size_t j) -> double.
          * @param[in] get_matrix_elem Callback returning matrix element A(i, j).
@@ -162,6 +175,11 @@ namespace lmi {
 
         /**
          * @brief Compute the symmetric quadratic form v^T A v using the witness vector.
+         *
+         * @f[
+         *     v^T A v = \sum_{i} \sum_{j} v_i A_{ij} v_j
+         * @f]
+         *
          * @tparam Mat Matrix type with operator()(i, j).
          * @param[in] A The matrix for the quadratic form.
          * @return The value of v^T A v restricted to the active [start, stop) range.
@@ -181,6 +199,11 @@ namespace lmi {
 
         /**
          * @brief Compute the Cholesky factor (lower triangular) from the LDL^T decomposition.
+         *
+         * @f[
+         *     M = L \quad\text{where}\quad LL^T = LDL^T
+         * @f]
+         *
          * @tparam Mat Matrix type with operator()(i, j).
          * @param[out] M Output matrix receiving the lower triangular Cholesky factor.
          * @pre The matrix must be SPD (is_spd() == true).
