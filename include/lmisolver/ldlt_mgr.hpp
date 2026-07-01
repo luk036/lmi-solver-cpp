@@ -39,7 +39,7 @@ namespace lmi {
      */
     class LDLTMgr {
       public:
-        using Vec = Eigen::VectorXd;  ///< Vector type for witness vectors
+        using Vec = Eigen::VectorXd;                      ///< Vector type for witness vectors
         using Rng = std::pair<std::size_t, std::size_t>;  ///< (start, stop) position range
 
       public:
