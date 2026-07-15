@@ -5,7 +5,7 @@ option(INSTALL_ONLY "Enable for installation only" OFF)
 
 project(
   LmiSolver
-  VERSION 1.0.0
+  VERSION 1.0.1
   LANGUAGES CXX
 )
 
