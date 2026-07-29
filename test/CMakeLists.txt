@@ -1,6 +1,11 @@
 option(ENABLE_TEST_COVERAGE "Enable test coverage" OFF)
 
-CPMAddPackage("gh:doctest/doctest#v2.5.2")
+# Try system-installed doctest first (Ubuntu: doctest-dev, macOS: brew install doctest, Termux: doctest)
+find_package(doctest CONFIG QUIET)
+
+if(NOT doctest_FOUND)
+  CPMAddPackage("gh:doctest/doctest#v2.5.2")
+endif()
 CPMAddPackage("gh:TheLartians/Format.cmake@1.7.3")
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp)
