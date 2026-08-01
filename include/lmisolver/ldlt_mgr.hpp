@@ -39,13 +39,13 @@ namespace lmi {
      */
     class LDLTMgr {
       public:
-        using Vec = Eigen::VectorXd;                      ///< Vector type for witness vectors
-        using Rng = std::pair<std::size_t, std::size_t>;  ///< (start, stop) position range
+        using Vec = Eigen::VectorXd;                    ///< Vector type for witness vectors
+        using Rng = std::pair<Eigen::Index, Eigen::Index>;  ///< (start, stop) position range
 
       public:
-        Rng pos{0U, 0U};  ///< Current (start, stop) position in factorization
+        Rng pos{0, 0};  ///< Current (start, stop) position in factorization
         Vec witness_vec;  ///< Witness vector for cutting-plane computation
-        std::size_t _n;   ///< Matrix dimension
+        Eigen::Index _n;  ///< Matrix dimension
 
       private:
         Eigen::MatrixXd T;
@@ -55,7 +55,7 @@ namespace lmi {
          * @brief Construct an LDLT manager for N x N matrices.
          * @param[in] N Matrix dimension.
          */
-        explicit LDLTMgr(std::size_t N) : witness_vec(N), _n{N}, T(N, N) {}
+        explicit LDLTMgr(Eigen::Index N) : witness_vec(N), _n{N}, T(N, N) {}
         LDLTMgr(const LDLTMgr&) = delete;
         LDLTMgr& operator=(const LDLTMgr&) = delete;
         LDLTMgr(LDLTMgr&&) = default;
@@ -74,7 +74,7 @@ namespace lmi {
          * @return true if A is symmetric positive-definite, false otherwise.
          */
         template <typename Mat> auto factorize(const Mat& A) -> bool {
-            return this->factor([&A](std::size_t i, std::size_t j) { return A(i, j); });
+            return this->factor([&A](Eigen::Index i, Eigen::Index j) { return A(i, j); });
         }
 
         /**
@@ -95,7 +95,7 @@ namespace lmi {
             this->pos = {0U, 0U};
             auto const& start = this->pos.first;
             auto& stop = this->pos.second;
-            for (auto i = 0U; i != this->_n; ++i) {
+            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
                 auto d = get_matrix_elem(i, start);
                 for (auto j = start; j != i; ++j) {
                     this->T(j, i) = d;
@@ -131,7 +131,7 @@ namespace lmi {
             this->pos = {0U, 0U};
             auto& start = this->pos.first;
             auto& stop = this->pos.second;
-            for (auto i = 0U; i != this->_n; ++i) {
+            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
                 auto d = get_matrix_elem(i, start);
                 for (auto j = start; j != i; ++j) {
                     this->T(j, i) = d;
@@ -170,7 +170,7 @@ namespace lmi {
          * @param[out] v Destination array to receive witness vector values.
          */
         template <typename Arr036> auto set_witness_vec(Arr036& v) const -> void {
-            for (auto i = 0U; i != this->_n; ++i) v[i] = this->witness_vec[i];
+            for (auto i = Eigen::Index{0}; i != this->_n; ++i) v[i] = this->witness_vec[i];
         }
 
         /**
@@ -210,7 +210,7 @@ namespace lmi {
          */
         template <typename Mat> auto sqrt(Mat& M) -> void {
             assert(this->is_spd());
-            for (auto i = 0U; i != this->_n; ++i) {
+            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
                 M(i, i) = std::sqrt(this->T(i, i));
                 for (auto j = i + 1; j != this->_n; ++j) {
                     M(i, j) = this->T(j, i) * M(i, i);

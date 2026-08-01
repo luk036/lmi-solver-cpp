@@ -38,7 +38,8 @@ namespace lmi {
          * @param[in] ndim Dimension of the decision variable x.
          * @param[in] F Vector of constraint matrices F_k.
          */
-        Lmi0Oracle(std::size_t ndim, const std::vector<Mat>& F) : _mq(ndim), m_F{F} {}
+        Lmi0Oracle(std::size_t ndim, const std::vector<Mat>& F)
+            : _mq(static_cast<Eigen::Index>(ndim)), m_F{F} {}
 
         /**
          * @brief Assess feasibility of point x for the homogeneous LMI.
@@ -55,15 +56,17 @@ namespace lmi {
          */
         auto assess_feas(const Vec& x) -> Cut* {
             const auto n = x.size();
-            auto getA = [&n, &x, this](std::size_t i, std::size_t j) -> double {
+            auto getA = [&n, &x, this](Eigen::Index i, Eigen::Index j) -> double {
                 auto a = 0.0;
-                for (auto k = 0U; k != n; ++k) a += this->m_F[k](i, j) * x[k];
+                for (auto k = Eigen::Index{0}; k != n; ++k)
+                    a += this->m_F[static_cast<std::size_t>(k)](i, j) * x[k];
                 return a;
             };
             if (this->_mq.factor(getA)) return nullptr;
             auto ep = this->_mq.witness();
             Vec g{x};
-            for (auto i = 0U; i != n; ++i) g[i] = -this->_mq.sym_quad(this->m_F[i]);
+            for (auto i = Eigen::Index{0}; i != n; ++i)
+                g[i] = -this->_mq.sym_quad(this->m_F[static_cast<std::size_t>(i)]);
             cut->first = std::move(g);
             cut->second = std::move(ep);
             return cut.get();

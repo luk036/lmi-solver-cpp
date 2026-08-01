@@ -1,6 +1,5 @@
 #include <Eigen/Dense>
 #include <iostream>
-
 #include <lmisolver/ldlt_mgr.hpp>
 #include <lmisolver/lmi_oracle.hpp>
 

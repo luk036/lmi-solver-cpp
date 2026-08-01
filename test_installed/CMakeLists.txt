@@ -29,7 +29,5 @@ find_package(LmiSolver REQUIRED)
 set(SPECIFIC_LIBS fmt::fmt EllAlgo::EllAlgo Eigen3::Eigen)
 
 add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/main.cpp)
-target_link_libraries(
-  ${PROJECT_NAME} PRIVATE LmiSolver::LmiSolver ${SPECIFIC_LIBS}
-)
+target_link_libraries(${PROJECT_NAME} PRIVATE LmiSolver::LmiSolver ${SPECIFIC_LIBS})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
