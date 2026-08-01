@@ -1,0 +1,31 @@
+name: Documentation
+
+on:
+  push:
+    tags:
+      - "*"
+
+env:
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
+
+jobs:
+  build:
+    name: Build and publish documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y --no-install-recommends doxygen graphviz
+
+      - name: Build
+        run: |
+          cmake -S documentation -B build
+          cmake --build build --target GenerateDocs
+
+      - name: Publish
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/doxygen/html

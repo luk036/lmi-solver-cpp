@@ -1,0 +1,47 @@
+name: Install
+
+on:
+  push:
+    branches:
+      - master
+      - main
+      - dev
+  pull_request:
+    branches:
+      - master
+      - main
+      - dev
+
+env:
+  CTEST_OUTPUT_ON_FAILURE: 1
+  CPM_SOURCE_CACHE: ${{ github.workspace }}/cpm_modules
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache@v3
+        with:
+          path: "**/cpm_modules"
+          key: ${{ github.workflow }}-cpm-modules-${{ hashFiles('**/CMakeLists.txt', '**/*.cmake') }}
+
+      - name: install dependency
+        run: sudo apt-get install -y libeigen3-dev libfmt-dev
+
+      - name: build and install library
+        run: |
+          cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release
+          sudo cmake --build build --target install
+          rm -rf build
+
+      - name: configure
+        run: cmake -Stest_installed -Bbuild
+
+      - name: build
+        run: cmake --build build --config Debug -j4
+
+      - name: run
+        run: ./build/test_installed/LmiSolverInstalled
