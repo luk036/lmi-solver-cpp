@@ -34,9 +34,9 @@ endif()
 # EllAlgo needed for integration tests (cutting_plane_optim, Ell, EllStable)
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG v1.6.8
+  GIT_TAG v1.6.9
   GITHUB_REPOSITORY luk036/ellalgo-cpp
-  OPTIONS "INSTALL_ONLY YES"
+  OPTIONS "INSTALL_ONLY YES" "ELLALGO_BUILD_TESTS OFF"
 )
 
 set(SPECIFIC_LIBS fmt::fmt EllAlgo::EllAlgo)
