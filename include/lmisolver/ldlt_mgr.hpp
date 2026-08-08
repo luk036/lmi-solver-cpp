@@ -39,11 +39,11 @@ namespace lmi {
      */
     class LDLTMgr {
       public:
-        using Vec = Eigen::VectorXd;                    ///< Vector type for witness vectors
+        using Vec = Eigen::VectorXd;                        ///< Vector type for witness vectors
         using Rng = std::pair<Eigen::Index, Eigen::Index>;  ///< (start, stop) position range
 
       public:
-        Rng pos{0, 0};  ///< Current (start, stop) position in factorization
+        Rng pos{0, 0};    ///< Current (start, stop) position in factorization
         Vec witness_vec;  ///< Witness vector for cutting-plane computation
         Eigen::Index _n;  ///< Matrix dimension
 
