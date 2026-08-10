@@ -72,7 +72,7 @@ CPMAddPackage(
 ## Additional Tools
 
 - **Sanitizers**: `-DUSE_SANITIZER=Address`
-- **Static analyzers**: `-DUSE_STATIC_ANALYZER=clang-tidy`
+- **Static analyzers**: `-DLMISOLVER_ENABLE_CLANG_TIDY=ON` (build the `clang-tidy` target)
 - **Code coverage**: `-DENABLE_TEST_COVERAGE=1`
 
 ## License
