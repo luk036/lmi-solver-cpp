@@ -3,17 +3,16 @@
 
 #include <Eigen/Dense>
 #include <cmath>
+#include <ellalgo/cutting_plane.hpp>  // for cutting_plane_optim
+#include <ellalgo/ell.hpp>            // for Ell
+#include <ellalgo/ell_config.hpp>     // for Options
+#include <ellalgo/ell_stable.hpp>     // for EllStable
 #include <lmisolver/lmi0_oracle.hpp>
 #include <lmisolver/lmi_oracle.hpp>
 #include <memory>
 #include <tuple>
 #include <utility>
 #include <vector>
-
-#include <ellalgo/cutting_plane.hpp>  // for cutting_plane_optim
-#include <ellalgo/ell.hpp>            // for Ell
-#include <ellalgo/ell_config.hpp>     // for Options
-#include <ellalgo/ell_stable.hpp>     // for EllStable
 
 namespace {
 

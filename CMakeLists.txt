@@ -91,10 +91,10 @@ if(Eigen_ADDED)
   include_directories(SYSTEM ${Eigen_SOURCE_DIR})
 endif()
 
-# EllAlgo provides the cutting-plane driver (cutting_plane_optim) that drives
-# this repo's LMI oracles (Strategy instances). lmi-solver oracles use
-# Eigen-based vectors, which Ell<Eigen::VectorXd> / EllStable<Eigen::VectorXd>
-# support (the framework only needs Arr::size() + operator[]).
+# EllAlgo provides the cutting-plane driver (cutting_plane_optim) that drives this repo's LMI
+# oracles (Strategy instances). lmi-solver oracles use Eigen-based vectors, which
+# Ell<Eigen::VectorXd> / EllStable<Eigen::VectorXd> support (the framework only needs Arr::size() +
+# operator[]).
 CPMAddPackage(
   NAME EllAlgo
   GIT_TAG v1.6.12
