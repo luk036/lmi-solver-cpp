@@ -97,7 +97,7 @@ endif()
 # support (the framework only needs Arr::size() + operator[]).
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG v1.6.11
+  GIT_TAG v1.6.12
   GITHUB_REPOSITORY luk036/ellalgo-cpp
   OPTIONS "ELLALGO_BUILD_TESTS OFF" "ELLALGO_BUILD_STANDALONE OFF"
 )
@@ -146,7 +146,7 @@ packageProject(
   INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
   VERSION_HEADER "${VERSION_HEADER_LOCATION}"
   COMPATIBILITY SameMajorVersion
-  DEPENDENCIES "fmt 12.1.0" "EllAlgo 1.6.11"
+  DEPENDENCIES "fmt 12.1.0" "EllAlgo 1.6.12"
 )
 
 # ---------------------------------------------------------------------------
