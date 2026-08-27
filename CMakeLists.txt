@@ -91,10 +91,13 @@ if(Eigen_ADDED)
   include_directories(SYSTEM ${Eigen_SOURCE_DIR})
 endif()
 
-# EllAlgo provides the cutting-plane solver used by the tests.
+# EllAlgo provides the cutting-plane driver (cutting_plane_optim) that drives
+# this repo's LMI oracles (Strategy instances). lmi-solver oracles use
+# Eigen-based vectors, which Ell<Eigen::VectorXd> / EllStable<Eigen::VectorXd>
+# support (the framework only needs Arr::size() + operator[]).
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG v1.6.10
+  GIT_TAG v1.6.11
   GITHUB_REPOSITORY luk036/ellalgo-cpp
   OPTIONS "ELLALGO_BUILD_TESTS OFF" "ELLALGO_BUILD_STANDALONE OFF"
 )
@@ -143,7 +146,7 @@ packageProject(
   INCLUDE_DESTINATION include/${PROJECT_NAME}-${PROJECT_VERSION}
   VERSION_HEADER "${VERSION_HEADER_LOCATION}"
   COMPATIBILITY SameMajorVersion
-  DEPENDENCIES "fmt 12.1.0" "EllAlgo 1.6.10"
+  DEPENDENCIES "fmt 12.1.0" "EllAlgo 1.6.11"
 )
 
 # ---------------------------------------------------------------------------
