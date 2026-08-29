@@ -5,7 +5,9 @@
  */
 
 #include <lmisolver/ldlt_mgr.hpp>
+#include <lmisolver/lmi_oracle_base.hpp>
 #include <memory>
+#include <utility>
 #include <vector>
 
 namespace lmi {
@@ -17,18 +19,21 @@ namespace lmi {
      *   F0 - sum(x_k * F_k) ≻ 0
      * and returns a cutting-plane (subgradient, ep) when the LMI is violated.
      *
+     * @note Concrete LMI oracle in the Template Method pattern: supplies a
+     *       lazy `getA` accessor (F0 - Σ F_k x_k) with a positive `sym_quad`
+     *       sign to the shared LmiOracleBase::assess_impl skeleton.
+     *
      * @tparam Vec Vector type satisfying VecConcept.
      * @tparam Mat Matrix type satisfying MatConcept (default: Eigen::MatrixXd).
      */
     template <typename Vec, typename Mat = Eigen::MatrixXd>
         requires detail::VecConcept<Vec> && detail::MatConcept<Mat>
-    class LmiOracle {
+    class LmiOracle : public LmiOracleBase<Vec, Mat> {
+        using Base = LmiOracleBase<Vec, Mat>;
         using Cut = std::pair<Vec, double>;
 
         LDLTMgr _mgr;
-        const std::vector<Mat>& m_F;
         Mat m_F0;
-        std::unique_ptr<Cut> cut = std::make_unique<Cut>();
 
       public:
         /**
@@ -38,7 +43,7 @@ namespace lmi {
          * @param[in] B Constant matrix F0 (moved into the oracle).
          */
         LmiOracle(std::size_t ndim, const std::vector<Mat>& F, Mat B)
-            : _mgr{static_cast<Eigen::Index>(ndim)}, m_F{F}, m_F0{std::move(B)} {}
+            : Base{F}, _mgr{static_cast<Eigen::Index>(ndim)}, m_F0{std::move(B)} {}
 
         /**
          * @brief Assess feasibility of point x.
@@ -61,14 +66,7 @@ namespace lmi {
                     a -= this->m_F[static_cast<std::size_t>(k)](i, j) * x[k];
                 return a;
             };
-            if (this->_mgr.factor(getA)) return nullptr;
-            auto ep = this->_mgr.witness();
-            Vec g{x};
-            for (auto i = Eigen::Index{0}; i != n; ++i)
-                g[i] = this->_mgr.sym_quad(this->m_F[static_cast<std::size_t>(i)]);
-            this->cut->first = std::move(g);
-            this->cut->second = std::move(ep);
-            return this->cut.get();
+            return this->assess_impl(this->_mgr, +1, x, getA);
         }
 
         /**
