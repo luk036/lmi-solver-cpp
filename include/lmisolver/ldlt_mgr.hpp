@@ -48,7 +48,53 @@ namespace lmi {
         Eigen::Index _n;  ///< Matrix dimension
 
       private:
+        /// @brief Pivot handling policy for the shared factorization skeleton.
+        enum class PivotPolicy {
+            Strict,           ///< Stop on any non-positive pivot (d <= 0).
+            AllowSemidefinite ///< Stop on negative pivot, advance start on zero.
+        };
+
         Eigen::MatrixXd T;
+
+        /**
+         * @brief Shared LDL^T factorization skeleton.
+         *
+         * Row-wise sweep identical for both public entry points; the pivot
+         * policy selects how non-positive / zero pivots are handled.
+         *
+         * @tparam Fn Callable type: Fn(std::size_t i, std::size_t j) -> double.
+         * @param[in] get_matrix_elem Callback returning matrix element A(i, j).
+         * @param[in] policy Pivot handling policy.
+         * @return true if the matrix is (semi)definite per the policy, false otherwise.
+         */
+        template <typename Fn> auto factor_impl(Fn&& get_matrix_elem, PivotPolicy policy) -> bool {
+            this->pos = {0U, 0U};
+            auto& start = this->pos.first;
+            auto& stop = this->pos.second;
+            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
+                auto d = get_matrix_elem(i, start);
+                for (auto j = start; j != i; ++j) {
+                    this->T(j, i) = d;
+                    this->T(i, j) = d / this->T(j, j);
+                    auto s = j + 1;
+                    d = get_matrix_elem(i, s);
+                    for (auto k = start; k != s; ++k) d -= this->T(i, k) * this->T(k, s);
+                }
+                this->T(i, i) = d;
+                if (d < 0.0) {
+                    stop = i + 1;
+                    break;
+                }
+                if (d == 0.0) {
+                    if (policy == PivotPolicy::Strict) {
+                        stop = i + 1;
+                        break;
+                    }
+                    start = i + 1;
+                }
+            }
+            return this->is_spd();
+        }
 
       public:
         /**
@@ -92,25 +138,8 @@ namespace lmi {
          * @return true if the matrix is symmetric positive-definite, false otherwise.
          */
         template <typename Fn> auto factor(Fn&& get_matrix_elem) -> bool {
-            this->pos = {0U, 0U};
-            auto const& start = this->pos.first;
-            auto& stop = this->pos.second;
-            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
-                auto d = get_matrix_elem(i, start);
-                for (auto j = start; j != i; ++j) {
-                    this->T(j, i) = d;
-                    this->T(i, j) = d / this->T(j, j);
-                    auto s = j + 1;
-                    d = get_matrix_elem(i, s);
-                    for (auto k = start; k != s; ++k) d -= this->T(i, k) * this->T(k, s);
-                }
-                this->T(i, i) = d;
-                if (d <= 0.0) {
-                    stop = i + 1;
-                    break;
-                }
-            }
-            return this->is_spd();
+            return this->factor_impl(std::forward<Fn>(get_matrix_elem),
+                                     PivotPolicy::Strict);
         }
 
         /**
@@ -128,26 +157,8 @@ namespace lmi {
          * @return true if the matrix is positive-(semi)definite, false otherwise.
          */
         template <typename Fn> auto factor_with_allow_semidefinite(Fn&& get_matrix_elem) -> bool {
-            this->pos = {0U, 0U};
-            auto& start = this->pos.first;
-            auto& stop = this->pos.second;
-            for (auto i = Eigen::Index{0}; i != this->_n; ++i) {
-                auto d = get_matrix_elem(i, start);
-                for (auto j = start; j != i; ++j) {
-                    this->T(j, i) = d;
-                    this->T(i, j) = d / this->T(j, j);
-                    auto s = j + 1;
-                    d = get_matrix_elem(i, s);
-                    for (auto k = start; k != s; ++k) d -= this->T(i, k) * this->T(k, s);
-                }
-                this->T(i, i) = d;
-                if (d < 0.0) {
-                    stop = i + 1;
-                    break;
-                }
-                if (d == 0.0) start = i + 1;
-            }
-            return this->is_spd();
+            return this->factor_impl(std::forward<Fn>(get_matrix_elem),
+                                     PivotPolicy::AllowSemidefinite);
         }
 
         /**
