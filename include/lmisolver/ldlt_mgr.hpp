@@ -50,8 +50,8 @@ namespace lmi {
       private:
         /// @brief Pivot handling policy for the shared factorization skeleton.
         enum class PivotPolicy {
-            Strict,           ///< Stop on any non-positive pivot (d <= 0).
-            AllowSemidefinite ///< Stop on negative pivot, advance start on zero.
+            Strict,            ///< Stop on any non-positive pivot (d <= 0).
+            AllowSemidefinite  ///< Stop on negative pivot, advance start on zero.
         };
 
         Eigen::MatrixXd T;
@@ -138,8 +138,7 @@ namespace lmi {
          * @return true if the matrix is symmetric positive-definite, false otherwise.
          */
         template <typename Fn> auto factor(Fn&& get_matrix_elem) -> bool {
-            return this->factor_impl(std::forward<Fn>(get_matrix_elem),
-                                     PivotPolicy::Strict);
+            return this->factor_impl(std::forward<Fn>(get_matrix_elem), PivotPolicy::Strict);
         }
 
         /**
