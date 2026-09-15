@@ -18,6 +18,7 @@ namespace lmi {
             { v[i] = double{} };
             V{cv};
             V{std::move(v)};
+            v = cv;
         };
 
         template <typename M>

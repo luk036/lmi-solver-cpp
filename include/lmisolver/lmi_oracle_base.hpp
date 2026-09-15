@@ -59,11 +59,11 @@ namespace lmi {
             const auto n = x.size();
             if (mgr.factor(std::forward<Fn>(getA))) return nullptr;
             const auto ep = mgr.witness();  // call before sym_quad() !!!
-            Vec g{x};
+            auto& g = this->cut->first;
+            g = x;
             for (auto i = Eigen::Index{0}; i != n; ++i)
                 g[i] = sign * mgr.sym_quad(this->m_F[static_cast<std::size_t>(i)]);
-            this->cut->first = std::move(g);
-            this->cut->second = std::move(ep);
+            this->cut->second = ep;
             return this->cut.get();
         }
     };
