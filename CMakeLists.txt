@@ -97,7 +97,7 @@ endif()
 # operator[]).
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG v1.6.12
+  GIT_TAG v1.6.14
   GITHUB_REPOSITORY luk036/ellalgo-cpp
   OPTIONS "ELLALGO_BUILD_TESTS OFF" "ELLALGO_BUILD_STANDALONE OFF"
 )
