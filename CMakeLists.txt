@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14...3.22)
 
 project(
   LmiSolver
-  VERSION 1.0.2
+  VERSION 1.0.3
   LANGUAGES CXX
 )
 
@@ -97,7 +97,7 @@ endif()
 # operator[]).
 CPMAddPackage(
   NAME EllAlgo
-  GIT_TAG v1.6.14
+  GIT_TAG v1.6.15
   GITHUB_REPOSITORY luk036/ellalgo-cpp
   OPTIONS "ELLALGO_BUILD_TESTS OFF" "ELLALGO_BUILD_STANDALONE OFF"
 )
