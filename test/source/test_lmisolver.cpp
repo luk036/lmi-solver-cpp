@@ -72,7 +72,7 @@ TEST_CASE("lmi::Lmi0Oracle: infeasible point returns cut") {
     // so factor returns false, assess_feas proceeds to compute a cut
     // This is a known limitation for the zero-matrix case
     auto x0 = Vec::Zero(2);
-    auto cut0 = oracle.assess_feas(x0);
+    auto* cut0 = oracle.assess_feas(x0);
     CHECK(cut0 != nullptr);
 }
 
@@ -114,12 +114,12 @@ TEST_CASE("lmi::LmiOracle: two-constraint LMI problem") {
     auto x = Vec(3);
     x << 1.0, 1.0, 1.0;
 
-    auto cut1 = lmi1(x);
+    auto* cut1 = lmi1(x);
     CHECK(cut1 != nullptr);
     CHECK(cut1->second > 0.0);
 
     // Test at origin (should be infeasible for at least one constraint)
     auto x0 = Vec::Zero(3);
-    auto cut2 = lmi2(x0);
+    auto* cut2 = lmi2(x0);
     CHECK(cut2 != nullptr);
 }
