@@ -1,0 +1,7 @@
+<map id="lmi::LmiOracleBase&lt; Vec, Mat &gt;" name="lmi::LmiOracleBase&lt; Vec, Mat &gt;">
+<area shape="rect" id="Node000001" title="Shared skeleton for LMI feasibility oracles." alt="" coords="107,5,257,45"/>
+<area shape="rect" id="Node000002" href="$classlmi_1_1Lmi0Oracle.html" title="Oracle for homogeneous LMI feasibility problems." alt="" coords="5,93,172,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,57,111,95,108,91,149,53"/>
+<area shape="rect" id="Node000003" href="$classlmi_1_1LmiOracle.html" title="Oracle for standard LMI feasibility problems." alt="" coords="196,93,355,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,53,256,91,253,95,211,57"/>
+</map>

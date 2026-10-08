@@ -1,0 +1,24 @@
+<map id="lmisolver/lmi_oracle.hpp" name="lmisolver/lmi_oracle.hpp">
+<area shape="rect" id="Node000001" title="Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="317,5,500,31"/>
+<area shape="rect" id="Node000002" href="$ldlt__mgr_8hpp.html" title="LDL^T factorization manager for symmetric positive&#45;definite matrices." alt="" coords="89,167,257,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,33,327,53,277,81,230,119,193,158,189,154,226,116,274,76,325,48,374,28"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="321,240,381,265"/>
+<area shape="poly" id="edge12_Node000001_Node000006" title=" " alt="" coords="379,33,347,52,333,65,322,80,315,98,311,118,315,158,326,196,340,226,335,229,321,197,309,159,306,117,309,97,317,77,329,61,344,47,377,28"/>
+<area shape="rect" id="Node000007" href="$lmi__oracle__base_8hpp.html" title="Shared LMI oracle skeleton (Template Method)." alt="" coords="331,79,486,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="411,31,411,65,406,65,406,31"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="402,167,479,192"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="441,28,473,47,489,61,500,78,506,98,500,120,487,142,470,160,466,156,483,139,496,118,501,98,496,80,485,65,470,52,438,33"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="529,167,592,192"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="444,28,484,47,521,77,545,114,558,152,553,154,540,117,517,80,481,52,442,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,240,108,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="155,194,89,235,86,230,153,190"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="133,240,202,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="174,193,172,227,167,226,169,192"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="227,240,297,265"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="189,190,238,229,235,233,185,194"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="202,190,311,232,309,237,200,195"/>
+<area shape="poly" id="edge7_Node000007_Node000002" title=" " alt="" coords="353,121,221,165,219,160,351,116"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="404,120,363,228,358,226,399,118"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="419,118,433,153,428,155,414,120"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="446,116,527,158,524,162,444,121"/>
+</map>

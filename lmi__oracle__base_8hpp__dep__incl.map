@@ -1,0 +1,7 @@
+<map id="lmisolver/lmi_oracle_base.hpp" name="lmisolver/lmi_oracle_base.hpp">
+<area shape="rect" id="Node000001" title="Shared LMI oracle skeleton (Template Method)." alt="" coords="129,5,283,45"/>
+<area shape="rect" id="Node000002" href="$lmi0__oracle_8hpp.html" title="Homogeneous Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="5,93,196,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,56,118,95,115,91,168,51"/>
+<area shape="rect" id="Node000003" href="$lmi__oracle_8hpp.html" title="Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="220,93,403,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="244,51,297,91,294,95,241,56"/>
+</map>
