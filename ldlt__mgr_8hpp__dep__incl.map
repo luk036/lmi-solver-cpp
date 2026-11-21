@@ -1,11 +1,11 @@
 <map id="lmisolver/ldlt_mgr.hpp" name="lmisolver/ldlt_mgr.hpp">
-<area shape="rect" id="Node000001" title="LDL^T factorization manager for symmetric positive&#45;definite matrices." alt="" coords="127,5,295,31"/>
-<area shape="rect" id="Node000002" href="$lmi0__oracle_8hpp.html" title="Homogeneous Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="5,167,196,192"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,39,147,57,124,80,113,102,107,126,103,167,98,166,102,125,108,100,120,77,143,53,170,35"/>
-<area shape="rect" id="Node000003" href="$lmi__oracle_8hpp.html" title="Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="229,167,412,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="252,35,280,53,303,77,314,100,320,125,324,166,318,167,315,126,309,102,298,80,276,57,250,39"/>
-<area shape="rect" id="Node000004" href="$lmi__oracle__base_8hpp.html" title="Shared LMI oracle skeleton (Template Method)." alt="" coords="134,79,289,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="214,44,214,79,209,79,209,44"/>
-<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="175,129,119,168,116,164,172,125"/>
-<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="251,125,306,164,303,168,248,129"/>
+<area shape="rect" id="Node000001" title="LDL^T factorization manager for symmetric positive&#45;definite matrices." alt="" coords="122,5,290,33"/>
+<area shape="rect" id="Node000002" href="$lmi0__oracle_8hpp.html" title="Homogeneous Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="5,174,196,201"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,42,139,60,119,82,108,105,103,130,102,174,97,172,98,130,103,104,114,80,135,56,164,39"/>
+<area shape="rect" id="Node000003" href="$lmi__oracle_8hpp.html" title="Linear Matrix Inequality (LMI) oracle for feasibility optimization." alt="" coords="224,174,406,201"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,38,276,56,297,80,309,104,315,129,318,174,314,172,310,130,304,105,293,82,273,60,249,43"/>
+<area shape="rect" id="Node000004" href="$lmi__oracle__base_8hpp.html" title="Shared LMI oracle skeleton (Template Method)." alt="" coords="129,81,283,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="207,47,208,81,203,79,204,51"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="169,135,119,175,116,171,164,136"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="248,133,300,173,295,173,246,138"/>
 </map>

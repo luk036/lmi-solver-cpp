@@ -7,8 +7,8 @@ var indexSectionsWithContent =
   4: "afilosw~",
   5: "_cmpw",
   6: "crv",
-  7: "l",
-  8: "l"
+  7: "abcdflrstu✨🧮",
+  8: "mv"
 };
 
 var indexSectionNames =
